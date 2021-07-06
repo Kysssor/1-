@@ -1,0 +1,245 @@
+.birthday {
+  border-radius: 8px; 
+  background: var(--background);
+  box-shadow: inset 0 0 0 var(--border-width) var(--border);
+  transition: box-shadow .3s;
+}
+.birthday .icon .zodiac div {
+	display:none;
+   position: absolute;
+top: 630px;
+left: 27%;   
+} 
+.birthday .icon .zodiac div[class *= "show"]{
+	display:block;
+   position: absolute;	
+}
+#fases {
+	display:block;
+	width:100%;
+	
+	outline: 2px solid #4f5e58;
+	outline-offset: -2px;
+	border-radius: 10px;
+	padding:0px;
+	border-radius:4px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	margin-top:15px;
+}
+}
+#fases>img {
+height:100%;	
+width:100%;
+object-fit:cover;
+margin:0px;
+padding:0px;	
+}
+#fases>.img1 {
+width:13% !important;
+opacity:0.6;	
+}
+#fases>.img2 {
+width:12.5% !important;
+opacity:0.6;			
+}
+#fases>.img3 {
+width:15% !important;
+opacity:0.6;			
+}
+#fases>.img4 {
+width:19% !important;
+opacity:0.6;			
+}
+#fases>.img5 {
+width:15% !important;
+opacity:0.6;			
+}
+#fases>.img6 {
+width:12.5% !important;
+opacity:0.6;		
+}
+#fases>.img7 {
+width:13% !important;
+opacity:0.6;		
+}
+.giff {
+	border-radius:4px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	margin-top:15px;
+}
+ #zodiacc {	 
+	display:block;
+ }
+ #zodiacc p {
+	 text-align:center;
+ }
+ #zodiacc>img {
+display:block;	
+margin-left:auto;
+margin-right:auto;
+ }
+
+html {
+ 
+}
+* {
+  box-sizing: inherit;
+}
+*:before, *:after {
+  box-sizing: inherit;
+}
+.body { 
+  font-family: Open Sans;  
+  background: #fafafb;
+}
+#chasy, #chasy1, #chasy4, .birthday {
+width:60%;
+margin-left:auto;
+margin-right:auto;
+margin-bottom:10px;
+border: 1px solid #4f5e58;
+border-radius:4px;
+box-shadow: 0 0 5px rgba(0,0,0,0.4);
+padding:10px;
+text-align:center;
+background:#F2F3F4;
+}
+ #cal9, .times {
+width:60%;
+margin-left:auto;
+margin-right:auto;
+margin-bottom:10px;
+
+}
+
+#chasy1 {
+ display:flex;
+ flex-direction:row;
+}
+.empty {
+background:#ccebe2;
+}
+#chasy4 {
+	background: linear-gradient(-45deg, #EE7752, #196b55, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@keyframes Gradient {
+0% {
+ background-position: 0% 50%
+}
+50% {
+ background-position: 100% 50%
+}
+100% {
+ background-position: 0% 50%
+}
+}
+@-webkit-keyframes Gradient {
+0% {
+background-position: 0% 50%
+}
+50% {
+background-position: 100% 50%
+}
+100% {
+background-position: 0% 50%
+}
+}
+ 
+@-moz-keyframes Gradient {
+0% {
+background-position: 0% 50%
+}
+50% {
+background-position: 100% 50%
+}
+100% {
+background-position: 0% 50%
+}
+}
+.divv {
+ flex-direction: column;
+}
+.center {
+align-self: center;
+}
+#left, #right {
+display:block;
+
+width:100%;
+}
+#left>img, #right>img {
+width:100%;
+object-fit:cover;
+}
+#cal {
+ font-size:18px;
+ color:#ffffff;
+}
+#cal7 {
+ font-weight:bold;
+ font-size:20px;
+ background: linear-gradient(45deg, #0B2349 33%, #0D61BC 66%, #8AA9D6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #0B2349;
+}
+.times {
+
+font-weight:bold;
+color:#041326;
+}
+input {
+width:100px;
+margin:5px;
+border: 1px solid #4f5e58;
+border-radius:2px;
+padding:5px;
+box-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+.butt, .butt1 {
+margin-top:10px;
+padding:10px;
+}
+.butt, .butt1  {
+  background-color: white;
+  color: black;  
+  border-radius:3px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.butt {
+border: 1px solid #4CAF50;
+}
+.butt1 {  
+  border: 1px solid #ad2b2b;  
+}
+.butt:hover {
+  box-shadow:none;
+  background-color: #4CAF50;
+  color: white;
+}
+.butt1:hover {
+  box-shadow:none;
+  background-color: #ad2b2b;
+  color: white;
+}
+@media screen and (max-width: 600px) {
+#chasy, #chasy1, #chasy4, .birthday {
+width:85%;
+}
+#chasy1 {
+ font-size:12px !important;
+}
+#left, #right {
+margin:0px !important;
+}
+.birthday .icon .zodiac div {
+left: 15% !important;	
+}
+}
