@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="stars.css">
+    <link rel="stylesheet" href="calendar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+    <button onclick="myFunction()">Toggle dark mode</button>
+
+    <section>
+        <div class="box">
+            <div class="container">
+                <div id="dycalendar">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="dycalendar.js"></script>
+    <script>
+        dycalendar.draw({
+            target: '#dycalendar',
+            type: 'month',
+            dayformat: 'full',
+            monthformat: 'full',
+            highlighttargetdate: true,
+            prevnextbutton: 'show'
+        })
+    </script>
+    <script src="dark-light.js"></script>
+</body>
+
+</html>
