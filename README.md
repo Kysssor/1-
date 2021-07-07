@@ -4,6 +4,7 @@
 <ul>
   <li>calendar.css - стили для календаря
   <li>calendar.html - сам календарь
+  <li>dark-light.js - лежит функция для dark/light mode
   <li>dycalendar.js - логика заполнения календаря
   <li>stars.css - отвечает за подложку со звездами и dark/light mode
 </ul>
