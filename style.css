@@ -1,0 +1,45 @@
+* {
+ background-image: url(Main.png);
+ background-attachment: fixed;
+ background-position: 50% 0%;
+ background-size: 100%;
+}
+body {
+ text-align: center;
+ font-family: Montserrat;
+ color:#ffffff;
+}
+div {
+ margin: auto;
+}
+p, #date {
+ width: 150px;
+ font-size:29px;
+ display: inline-block;
+ margin: 19px;
+ margin-top: 5.9%;
+}
+input { /*блоки для ввода данных*/
+width:50px;
+border: 0px solid #4f5e58;
+ font-family: Montserrat;
+ color:#ffffff;
+  font-size: 24px;
+}
+button {
+border: 0px solid #4f5e58;
+}
+#input {
+ margin-top: 2px;
+    background: #fff; 
+    padding: 26px; 
+opacity:0.3;
+border-radius:25px;
+    width: 15.2%; 
+}
+#time {
+ width: 180px;
+ font-size: 36px;
+ margin-top: 29%;
+ letter-spacing: 7px;
+}
