@@ -120,7 +120,7 @@
                 }
                 count = count + 1;
                 // var img = new Image();
-                // img.src = 'moon-phases.png';
+                // img.src = 'img/moon-phases.png';
                 // tr.appendChild(img);
                 tr.appendChild(td);
             }

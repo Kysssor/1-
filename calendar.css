@@ -4,10 +4,10 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
-button{
-    padding: 10px;
-    margin-left: 45%;
-}
+/* body{
+    background: #161623;
+} */
+
 section{
     position: relative;
     display: flex;
@@ -15,7 +15,7 @@ section{
     align-items: center;
     min-height: 100vh;
 
-    /* background: #161623; */
+
     overflow: hidden;
 }
 /* section::before{
@@ -74,7 +74,6 @@ section::after{
     padding: 10px;
     margin: 10px;
     cursor: pointer;
-
     text-align: end;
     /* background: rgba(255, 255, 255, 0.1); */
     /* border-radius: 4px; */

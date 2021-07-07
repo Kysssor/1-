@@ -12,19 +12,19 @@
 
 <body>
     <div id='stars'></div>
-    <div id='stars2'></div>
-    <div id='stars3'></div>
-    <button onclick="myFunction()">Toggle dark mode</button>
-
+    
+    
     <section>
         <div class="box">
+            <button onclick="darkLight()"></button>
             <div class="container">
                 <div id="dycalendar">
                 </div>
             </div>
         </div>
     </section>
-
+    <div id='stars2'></div>
+    
     <script src="dycalendar.js"></script>
     <script>
         dycalendar.draw({
@@ -36,7 +36,9 @@
             prevnextbutton: 'show'
         })
     </script>
+    
     <script src="dark-light.js"></script>
+    <div id='stars3'></div>
 </body>
 
 </html>

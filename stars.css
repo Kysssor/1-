@@ -1,5 +1,5 @@
 html {
-  height: 100%;
+  min-height: 100vh;
   background: radial-gradient(ellipse at bottom, #020731 0%, #000715 100%);
   overflow: hidden;
 }
@@ -84,7 +84,22 @@ html {
   }
 }
 /* dark/light mode */
-  .dark-mode {
-    background-color: black;
-    color: white;
-  }
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+button{
+  padding: 30px;
+  margin-left: 45%;
+  border-radius: 30px;
+  font-weight: 600;
+  background-image: url('img/light.png');
+  background-size: contain;
+  
+
+}
+.dark-mode button{
+  background: khaki;
+  background-image: url('img/ark.png');
+  background-size: contain;
+}
