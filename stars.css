@@ -100,6 +100,6 @@ button{
 }
 .dark-mode button{
   background: khaki;
-  background-image: url('img/ark.png');
+  background-image: url('img/dark.png');
   background-size: contain;
 }
