@@ -90,7 +90,7 @@
         while (c <= 6) {
             td = document.createElement("td");
             // td.innerHTML = count;
-            td.innerHTML = "<img src='img/moon-phases.png' alt='hello'>"+count;
+            td.innerHTML = "<img src='img/moon-phase-1.png' alt='hello'>"+count;
             if (data.today.date === count && data.today.monthIndex === data.monthIndex && option.highlighttoday === true) {
                 td.setAttribute("class", "dycalendar-today-date");
             }
@@ -115,7 +115,7 @@
                 }
                 td = document.createElement('td');
                 // td.innerHTML = count;
-                td.innerHTML = "<img src='img/moon-phases.png' alt='hello'>"+count;
+                td.innerHTML = "<img src='img/moon-phase-3.png' alt='hello'>"+count;
                 if (data.today.date === count && data.today.monthIndex === data.monthIndex && option.highlighttoday === true) {
                     td.setAttribute("class", "dycalendar-today-date");
                 }
