@@ -1,0 +1,42 @@
+/*img {
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+            transition:         transform .8s ease-in-out;
+          
+  }
+  img:hover {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }*/
+/*img#ZodiacCircle{ border-radius: 50%;}*/
+img#TropicCircle { 
+  margin-left: 40%;
+  margin-top: 200px;
+  position: relative;
+}
+img#SiderCircle { 
+  margin-left: -374px;
+margin-top: 114px;
+position: absolute;
+}
+img#AstrolCircle { 
+  margin-left: -457px;
+margin-top: 33px;
+position: absolute;
+}
+div#Circle { 
+  display: block;
+}
+body {
+  background: url("https://www.anypics.ru/download.php?file=201304/2560x1600/anypics.ru-62557.jpg") center repeat;
+}
+#Circle.animate {
+  transform: rotateZ(360deg);
+  transition-duration: 8s;
+}
+#TropicCircle {
+  transition: all 1s linear;
+}
+
+#TropicCircle.transform {
+  transform: rotate(180deg);
+}
