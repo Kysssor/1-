@@ -59,23 +59,23 @@
         table = document.createElement("table");
         tr = document.createElement("tr");
 
-
-
-
-
         //create 1st row for the day letters
+        //создание 1 строчки для дней недели
         for (c = 0; c <= 6; c = c + 1) {
             td = document.createElement("td");
+            // td.innerHTML = "<img src='img/moon-phases.png' alt='hello'>"+"ВПВСЧПС"[c];
             td.innerHTML = "ВПВСЧПС"[c];
             tr.appendChild(td);
         }
         table.appendChild(tr);
 
         //create 2nd row for dates
+        //создание 2 строчки для дат(иначе они сливаются с 1 строчкой)
         tr = document.createElement("tr");
 
 
         //blank td
+        //пустые ячейки для 2 строчки(передвигает начало месяца на нужное место)
         for (c = 0; c <= 6; c = c + 1) {
             if (c === data.firstDayIndex) {
                 break;
@@ -85,10 +85,12 @@
         }
 
         //remaing td of dates for the 2nd row
+        //оставшиеся даты из 2 строчки
         count = 1;
         while (c <= 6) {
             td = document.createElement("td");
-            td.innerHTML = count;
+            // td.innerHTML = count;
+            td.innerHTML = "<img src='img/moon-phases.png' alt='hello'>"+count;
             if (data.today.date === count && data.today.monthIndex === data.monthIndex && option.highlighttoday === true) {
                 td.setAttribute("class", "dycalendar-today-date");
             }
@@ -103,6 +105,7 @@
 
 
         //create remaining rows
+        //создает оставшиеся строки
         for (r = 3; r <= 7; r = r + 1) {
             tr = document.createElement("tr");
             for (c = 0; c <= 6; c = c + 1) {
@@ -111,7 +114,8 @@
                     return table;
                 }
                 td = document.createElement('td');
-                td.innerHTML = count;
+                // td.innerHTML = count;
+                td.innerHTML = "<img src='img/moon-phases.png' alt='hello'>"+count;
                 if (data.today.date === count && data.today.monthIndex === data.monthIndex && option.highlighttoday === true) {
                     td.setAttribute("class", "dycalendar-today-date");
                 }
