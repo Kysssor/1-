@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Widget page</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="calendarr.css">
+</head>
+
+<body>
+    <div id="grid">
+        <div class="columns">1</div>
+        <div class="columns">2</div>
+        <div class="columns">3</div>
+        <div class="columns">4</div>
+        <div class="columns">
+            <button class="darkLight" onclick="darkLight()"></button>
+            <div class="container">
+                <div id="dycalendar">
+                </div>
+            </div>
+        </div>
+        <div class="columns">6</div>
+    </div>
+    <script src="dark-light.js"></script>
+    <script src="dycalendar.js"></script>
+    <script>
+        dycalendar.draw({
+            target: '#dycalendar',
+            type: 'month',
+            dayformat: 'full',
+            monthformat: 'full',
+            highlighttargetdate: true,
+            prevnextbutton: 'show'
+        })
+    </script>
+</body>
+
+</html>

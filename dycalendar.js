@@ -38,7 +38,7 @@
         //name of the days
         dayName = {
             full: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
-            d: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+            d: ['Su', 'M', 'T', 'W', 'T', 'F', 'S'],
             dd: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
             ddd: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
         };
@@ -64,7 +64,8 @@
         for (c = 0; c <= 6; c = c + 1) {
             td = document.createElement("td");
             // td.innerHTML = "<img src='img/moon-phases.png' alt='hello'>"+"ВПВСЧПС"[c];
-            td.innerHTML = "ВПВСЧПС"[c];
+            // td.innerHTML = "ВПВСЧПС"[c];
+            td.innerHTML = ['ВС','ПН','ВТ','СР','ЧТ','ПТ','СБ'][c];
             tr.appendChild(td);
         }
         table.appendChild(tr);
@@ -89,8 +90,8 @@
         count = 1;
         while (c <= 6) {
             td = document.createElement("td");
-            // td.innerHTML = count;
-            td.innerHTML = "<img src='img/moon-phase-1.png' alt='hello'>"+count;
+            td.innerHTML = count;
+            // td.innerHTML = "<img src='img/moon-phase-1.png' alt='hello'>"+count;
             if (data.today.date === count && data.today.monthIndex === data.monthIndex && option.highlighttoday === true) {
                 td.setAttribute("class", "dycalendar-today-date");
             }
@@ -114,8 +115,8 @@
                     return table;
                 }
                 td = document.createElement('td');
-                // td.innerHTML = count;
-                td.innerHTML = "<img src='img/moon-phase-3.png' alt='hello'>"+count;
+                td.innerHTML = count;
+                // td.innerHTML = "<img src='img/moon-phase-3.png' alt='hello'>"+count;
                 if (data.today.date === count && data.today.monthIndex === data.monthIndex && option.highlighttoday === true) {
                     td.setAttribute("class", "dycalendar-today-date");
                 }
@@ -130,7 +131,6 @@
             }
             table.appendChild(tr);
         }
-
         return table;
     }
 

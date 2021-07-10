@@ -58,6 +58,7 @@ section::after{
 }
 #dycalendar{
     width: 100%;
+    
     padding: 20px;
 }
 #dycalendar table{
@@ -65,26 +66,24 @@ section::after{
     margin-top: 30px;
     /* background: rgba(255, 255, 255, 0.1); */
     /* border-spacing: 5px; */
-    /* border: 1px; */
 }
 /* ячейки */
 #dycalendar table td{
     font-family: 'Caveat', cursive;
     color: #fff;
     padding: 10px;
-    /* margin: 10px; */
+    margin: 10px;
     cursor: pointer;
-    text-align: center;
+    text-align: end;
     /* background: rgba(255, 255, 255, 0.1); */
     /* border-radius: 4px; */
-    /* border: 3px; */
 }
 
 #dycalendar table{
     background: rgba(255, 255, 255, 0.3);
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    /* backdrop-filter: blur(25px); */
+    backdrop-filter: blur(25px);
     border-radius: 10px;
 }
 

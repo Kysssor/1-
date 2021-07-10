@@ -95,8 +95,6 @@ button{
   font-weight: 600;
   background-image: url('img/light.png');
   background-size: contain;
-  
-
 }
 .dark-mode button{
   background: khaki;
