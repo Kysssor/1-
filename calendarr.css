@@ -1,0 +1,114 @@
+#dycalendar{
+    /* max-width: 500px; */
+    cursor: pointer;
+}
+#dycalendar table{
+    width: 100%;
+    min-height: 200px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* backdrop-filter: blur(25px); */
+    border-radius: 10px;
+    border-spacing: initial;
+}
+/* ячейки */
+#dycalendar table td{
+    font-family: 'Caveat', cursive;
+    color: #fff;
+    text-align: center;
+    font-size: 0.6em;
+    font-size: 14px;
+    /* border: 1px #fff;
+    border-style:solid; */
+}
+  
+  #dycalendar table td:hover{
+    background: rgba(255, 255, 255, 0.2);
+    color: #111;
+    transition: .7s;
+  }
+/* дни недели */
+ #dycalendar table tr:nth-child(1) td{
+    background: rgba(255, 255, 255, 0.3);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 20px;
+    /* font-weight: 400; */
+}
+#dycalendar table tr:nth-child(1) td:last-child{
+    border-top-right-radius: 10px;
+}
+#dycalendar table tr:nth-child(1) td:first-child{
+    border-top-left-radius: 10px;
+}
+#dycalendar table tr:last-child td:first-child{
+      border-bottom-left-radius: 10px;
+}
+/* текущий день */
+.dycalendar-month-container .dycalendar-today-date, .dycalendar-month-container .dycalendar-target-date{
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFCC4D !important ;
+}
+/* правая стрелка */
+.dycalendar-month-container .dycalendar-header .dycalendar-prev-next-btn.next-btn{
+    color: #fff;
+    right: 10%;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    top: 8px;
+    font-size: 36px;
+}
+/* левая стрелка */
+.dycalendar-month-container .dycalendar-header .dycalendar-prev-next-btn.prev-btn{
+    color: #fff;
+    left: 10%;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    top: 8px;
+    font-size: 36px;
+}
+.dycalendar-month-container .dycalendar-header .dycalendar-prev-next-btn.prev-btn:hover{
+    transition: .6s;
+    transform: translateX(-10px)
+}
+.dycalendar-month-container .dycalendar-header .dycalendar-prev-next-btn.next-btn:hover{
+    transition: .6s;
+    transform: translateX(10px)
+  }
+/* месяца */
+.dycalendar-month-container .dycalendar-span-month-year{
+    line-height: 35px;
+    transition: .7s;
+    font-size: 22px;
+    font-weight: 600;
+}
+.dycalendar-month-container .dycalendar-header{
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.0));
+    position : relative;
+    text-align : center;
+    margin-bottom: 20px;
+}
+.dycalendar-month-container .dycalendar-header .dycalendar-prev-next-btn {
+    position : absolute;
+    cursor : pointer;
+}
+/* dark/light mode */
+.dark-mode {
+    background-color: black;
+}
+.darkLight {
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    background-image: url('img/calendar/light.png');
+    background-size: contain;
+}
+.dark-mode .darkLight{
+    background-image: url('img/calendar/dark.png');
+    background-size: contain;
+}

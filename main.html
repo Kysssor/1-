@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Widget page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cursor.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="calendarr.css">
+    <link rel="stylesheet" href="styleCircleCalendar.css">
+    <link rel="stylesheet" href="mood.css">
+    <link rel="stylesheet" href="zametki.css">
+    <link rel="stylesheet" href="affirmacii.css">
+    <link rel="stylesheet" href="countdown.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id="grid">
+        <div class="columns">
+            <img id="Moon_zametki" src="img/zametki/image 5.png">
+            <div class="zametki">
+                <div class="title_zametki">Интересные заметки о лунном дне</div>
+                <div class="text_zametki" id="text_zametki">Талисман cегодняшнего лунного дня - Золотой Лебедь.</div>
+                <button class="button_zametki" id="show_more"> Показать ещё</button>
+            </div>
+        </div>
+
+        <div class="columns">
+            <!-- ДАТА -->
+            <p> СЕГОДНЯ </p>
+            <div id="date"></div>
+
+            <!-- ФОРМА И КНОПКА -->
+            <div id="input">
+            </div>
+            <div class="search">
+                <input type="text" maxlength="8" placeholder="ДД.ММ.ГГГГ" />
+                <button class="butt" onclick="a_value(this);"><img style="width:20px;"
+                        src="img/moon_info/search.png" /></button>
+            </div>
+
+            <!-- ВРЕМЯ -->
+            <div id="time"></div>
+
+            <!-- МЕСТОПОЛОЖЕНИЕ -->
+            <div id="location">МЕСТОПОЛОЖЕНИЕ, а ТАКЖЕ ВОСХОД/ЗАКАТ, МЕСТОПОЛОЖЕНИЕ, СОСТОЯНИЕ ЛУНЫ</div>
+
+            <!-- ВОСХОД И ЗАКАТ ЛУНЫ -->
+            <div id="risesetmoon"></div>
+
+            <!-- МЕСТОПОЛОЖЕНИЕ ЛУНЫ -->
+            <div id="locationmoon"></div>
+
+            <!-- СОСТОЯНИЕ ЛУНЫ -->
+            <div id="statemoon"></div>
+        </div>
+
+        <div class="columns">
+            <div class="vidgetaffirm">
+                <div class="rectangle">
+                </div>
+                <img class="vselennaya" src="img/affirmacii/Vector.png">
+                <h1 class="titlerec">Аффирмация на сегодня</h1>
+                <div class="line">
+                </div>
+                <div class="textaffirmacii">
+                    <p id="textaffirm">Спасибо миру за безграничные возможности, которые дарованы мне.
+                </div>
+                <input onclick="textaffirm.innerText = text.randElement()" class="button_left" type="image"
+                    src="img/affirmacii/button_left.png" alt="Стрелка влево «input»">
+                <input onclick="textaffirm.innerText = text.randElement()" class="button_right" type="image"
+                    src="img/affirmacii/button_right.png" alt="Стрелка вправо «input»">
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="smiles">
+                <div class="happy">
+                    <img src="img/emotions/happy.png" width="80 px">
+                    <p> СЧАСТЛИВЫЙ </p>
+                </div>
+                <div class="love">
+                    <img src="img/emotions/love.png" width="80px">
+                    <p> ВЛЮБЛЕННЫЙ </p>
+                </div>
+                <div class="sad">
+                    <img src="img/emotions/sad.png" width="80px">
+                    <p> ПЕЧАЛЬНЫЙ </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <button class="darkLight" onclick="darkLight()"></button>
+            <div class="container">
+                <div id="dycalendar">
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div id="Circle">
+                <img id="TropicCircle" src="img/zodiac_calendar/Тропичсекий круг.png" width="150px">
+                <img id="SiderCircle" src="img/zodiac_calendar/Сидерический круг.png" width="230px">
+                <img id="AstrolCircle" src="img/zodiac_calendar/Астрологический круг.png" width="310px">
+                <img id="Sun" src="img/zodiac_calendar/Солнце.png" width="60px" onclick="animation({}, this);">
+            </div>
+        </div>
+
+        <div class="columns">
+            <h1 class="countdown-title">День рождения Алисы</h1>
+            <div class="widget-countdown">
+                <div id="countdown" class="countdown">
+                    <div class="countdown-number">
+                        <span class="days countdown-time"></span>
+                        <span class="countdown-text">Дней</span>
+                    </div>
+                    <div class="countdown-number">
+                        <span class="hours countdown-time"></span>
+                        <span class="countdown-text">Часов</span>
+                    </div>
+                    <div class="countdown-number">
+                        <span class="minutes countdown-time"></span>
+                        <span class="countdown-text">Минут</span>
+                    </div>
+                    <div class="countdown-number">
+                        <span class="seconds countdown-time"></span>
+                        <span class="countdown-text">Секунд</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="content">
+        <h1>ПРИМЕР РАБОТЫ КУРСОРА</h1>
+        <p>
+            текст для наведения текст для наведения текст для наведения текст для наведения текст для наведения текст
+            для наведения
+        </p>
+    </div>
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+
+    <script src="mooncalc.js"></script>
+    <script src="jsCircleCalendar.js"></script>
+    <script src="mooncalc.js"></script>
+    <script src="affirmacii.js"></script>
+    <script src="dark-light.js"></script>
+    <script src="dycalendar.js"></script>
+    <script src="zametki.js"></script>
+    <script src="countdown.js"></script>
+    <script>
+        dycalendar.draw({
+            target: '#dycalendar',
+            type: 'month',
+            dayformat: 'full',
+            monthformat: 'full',
+            highlighttargetdate: true,
+            prevnextbutton: 'show'
+        })
+    </script>
+    <script>
+        var cursor = document.querySelector(".cursor");
+        var cursor2 = document.querySelector(".cursor2");
+        document.addEventListener("mousemove", function (e) {
+            cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

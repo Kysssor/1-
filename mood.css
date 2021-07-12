@@ -1,0 +1,48 @@
+.smiles{
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding-top: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.happy {
+    display: inline-block; 
+    margin: 10px;
+    opacity: .3;
+}
+.love {
+    display: inline-block;
+    margin: 10px;
+    opacity: .3;
+}
+
+.sad { 
+    display: inline-block; 
+    margin: 10px;
+    opacity: .3;
+}
+
+.happy:hover img {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.2);
+}
+.happy:hover{
+    opacity: 1;
+}
+.love:hover{
+    opacity: 1;
+}
+.sad:hover{
+    opacity: 1;
+}
+.love:hover img {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.2);
+}
+
+.sad:hover img {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.2);
+}
