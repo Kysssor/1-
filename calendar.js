@@ -35,7 +35,7 @@ const renderCalendar = () => {
 
     document.querySelector('.date h1').innerHTML = months[dateCal.getMonth()] + " " + dateCal.getFullYear();
     // document.querySelector('.date p').innerHTML = new Date().toDateString();
-    
+
     let days = "";
     //числа предыдущего месяца
     for (let x = firstDayIndex; x > 0; x--) {
