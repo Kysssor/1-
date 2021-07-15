@@ -68,8 +68,6 @@ function moveAndRotateSun(index) {
     document.querySelector("#Sun").style.left = 1100+ radius * Math.sin(alf);
     document.querySelector("#Sun").style.top = 360 + radius * Math.cos(alf);
     
-    console.log(zodiacsDate[index][0]);
-    console.log("i = "+index+" gradus = " + gradus + " alf = " + alf);
 }
 
 function animation(args, elem) { // некоторые аргументы определим на будущее
