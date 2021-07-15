@@ -19,7 +19,7 @@ Circle.onclick = function() {
 
 var date = new Date();
 date = addZero(date.getMonth()+1) + "-" + addZero(date.getDate());
-date = "11-02";
+//date = "11-02";
 console.log(date);
 function addZero(num) {
   if (num <= 9 ){
