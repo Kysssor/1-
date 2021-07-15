@@ -11,7 +11,7 @@
 .button_left{
     /* display: flex; */
     position: relative;
-    margin-right: 100px;
+    margin-right: 150px;
 }
 .button_left:hover{
     transform: scale(1.4);
@@ -20,7 +20,7 @@
 .button_right{
     /* display: flex; */
     position: relative;
-    margin-left: 100px;
+    margin-left: 150px;
 }
 .button_right:hover{
     transform: scale(1.4);
