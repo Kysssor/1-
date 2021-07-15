@@ -18,9 +18,14 @@ position: absolute;
 margin-left: -206px;
 margin-top: -30px;
 }
+img#Moon {
+  position: absolute;
+  margin-left: -202px;
+  margin-top: -30px;
+  }
 div#Circle { 
   display: block;
-  margin-top: 150px;
+  margin-top: 50px;
 }
 body {
   background: url("https://www.anypics.ru/download.php?file=201304/2560x1600/anypics.ru-62557.jpg") center repeat;
