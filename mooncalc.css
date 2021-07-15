@@ -4,5 +4,35 @@
 }
 
 #fases{
-padding-top: 10px;
+	padding-top: 10px;
+}
+.mooncalc-today{
+	font-weight: 600;
+}
+.birthday input{
+	padding: 5px;
+	border-radius: 20px;
+	outline: none; 
+	border: none; 
+	background-color: rgba(255, 255, 255, 0.2);
+	color: #fff;
+	margin: 10px 0;
+}
+.birthday input:focus{
+	/* background: linear-gradient(21deg, #10abff, #1beabd); */
+	border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.birthday button{
+	opacity: 0.8;
+	border-radius: 20px;
+	background-image: url('img/moon_info/search.png');
+	background-size: contain;
+	padding: 15px;
+	margin-left: 5px;
+	margin-top: 9px;
+	position: absolute;
+	outline: none; 
+	border: none; 
+	/* background-color: rgba(255, 255, 255, 0.2); */
+	background-color: rgba(255, 255, 255, 0);
 }

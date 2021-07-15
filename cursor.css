@@ -9,11 +9,11 @@ body{
 }
 
 .content p{
-  width: 700px;
+  /* width: 700px; */
   line-height: 26px;
   font-size: 18px;
   text-align: center;
-  position: relative;
+  /* position: relative; */
   left: 31%;
 }
 

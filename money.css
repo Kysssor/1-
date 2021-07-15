@@ -1,0 +1,29 @@
+.container {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-family: 'Montserrat';
+    max-width: 320px;
+    min-height: 80px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: uppercase;
+}
+
+.info {
+    margin-top: -1em;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.3);
+    /* height: 30px; */
+    border-radius: 10px 10px 0px 0px;
+    text-align: center;
+    line-height: 30px;
+}
+
+/* .search {
+    height: 35px;
+} 
+
+.currency {
+    min-height: 50px;
+} */
