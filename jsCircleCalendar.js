@@ -19,7 +19,7 @@ Circle.onclick = function() {
 
 var date = new Date();
 date = addZero(date.getMonth()+1) + "-" + addZero(date.getDate());
-//date = "11-25";
+//date = "11-02";
 console.log(date);
 function addZero(num) {
   if (num <= 9 ){
@@ -46,7 +46,7 @@ let zodiacsDate = [
 var zodiakNow;
 var current_rotation = 180;
 var alf, gradus;
-var radius  = 220; // радиус окружности 
+var radius  = 110; // радиус окружности 
 
 for (let i=0; i<12; i++){
     if (date >= zodiacsDate[i][1] && date <= zodiacsDate[i][2] && i!=9) {
@@ -55,21 +55,24 @@ for (let i=0; i<12; i++){
       moveAndRotateSun(i);
     }
 }
-//Намётки на отыскание центра
-const { right, left, width, height } = document.querySelector("#TropicCircle").getBoundingClientRect();
-console.log("Размер "+ height + " "+ width + " "+ left + " " + right + " ");
+
 
 function moveAndRotateSun(index) {
     zodiakNow = zodiacsDate[index][0];
-    gradus = current_rotation - (30*index+15);
-    //var radius  = 220; // радиус окружности 
-    alf = ((30*index+15) * Math.PI)/180;
+    var dayInZodiak;
+    //вычисление угла для поворота солнца
+    if ((date[0]+date[1])==(zodiacsDate[index][1][0]+zodiacsDate[index][1][1])){
+      dayInZodiak = (date[3]+date[4])-(zodiacsDate[index][1][3]+zodiacsDate[index][1][4]);
+    } else if ((date[0]+date[1])==(zodiacsDate[index][2][0]+zodiacsDate[index][2][1])){
+      var countDayInMonth= new Date(2021, zodiacsDate[index][1][0]+zodiacsDate[index][1][1], 0).getDate();
+      dayInZodiak = Number(date[3]+date[4]) + (countDayInMonth-(zodiacsDate[index][1][3]+zodiacsDate[index][1][4]));
+    }
+    gradus = current_rotation - (30*index+dayInZodiak);
+    alf = ((30*index+dayInZodiak) * Math.PI)/180;
     document.querySelector("#Sun").style.transform = 'rotate(' + gradus +'deg)';
-    document.querySelector("#Sun").style.left = 1100+ radius * Math.sin(alf);
-    document.querySelector("#Sun").style.top = 360 + radius * Math.cos(alf);
+    document.querySelector("#Sun").style.marginLeft  = -104+ radius * Math.sin(alf) + 'px';
+    document.querySelector("#Sun").style.marginTop  = -8 + radius * Math.cos(alf) + 'px';
     
-    console.log(zodiacsDate[index][0]);
-    console.log("i = "+index+" gradus = " + gradus + " alf = " + alf);
 }
 
 function animation(args, elem) { // некоторые аргументы определим на будущее
@@ -83,10 +86,9 @@ function animation(args, elem) { // некоторые аргументы опр
 	setInterval(function() { // функция движения 
 		f += s; // приращение аргумента
 
-		  elem.style.left =  1100 + radius * Math.sin(f) + 'px' ;//858 + $.radius * Math.sin(f)  + 'px'; // меняем координаты элемента, подобно тому как мы это делали в школе в декартовой системе координат. Правда, в данном случае используется полярная система координат, изменяя угол
-		  elem.style.top =   360 + radius * Math.cos(f) + 'px';//360 + $.radius * Math.cos(f) + 'px';
-      console.log(Math.sin(f));
-      console.log("f = "+f);
+		  elem.style.marginLeft =  -104 + radius * Math.sin(f) + 'px' ;//858 + $.radius * Math.sin(f)  + 'px'; // меняем координаты элемента, подобно тому как мы это делали в школе в декартовой системе координат. Правда, в данном случае используется полярная система координат, изменяя угол
+		  elem.style.marginTop = -8 + radius * Math.cos(f) + 'px';//360 + $.radius * Math.cos(f) + 'px';
+      
 
       rotateSun -= 2; // rotate clockwise by 90 degrees
       document.querySelector("#Sun").style.transform = 'rotate(' + rotateSun + 'deg)';
