@@ -3,11 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
     <title>Widget page</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     <link rel="stylesheet" href="cursor.css">
+    <link rel="stylesheet" href="money.css">
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="calendarr.css">
+    <link rel="stylesheet" href="calendar.css">
     <link rel="stylesheet" href="styleCircleCalendar.css">
     <link rel="stylesheet" href="mood.css">
     <link rel="stylesheet" href="zametki.css">
@@ -58,6 +61,23 @@
         </div>
 
         <div class="columns">
+            <div class="smiles">
+                <div class="happy">
+                    <img src="img/emotions/happy.png" width="80 px">
+                    <p> СЧАСТЛИВЫЙ </p>
+                </div>
+                <div class="love">
+                    <img src="img/emotions/love.png" width="80px">
+                    <p> ВЛЮБЛЕННЫЙ </p>
+                </div>
+                <div class="sad">
+                    <img src="img/emotions/sad.png" width="80px">
+                    <p> ПЕЧАЛЬНЫЙ </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
             <div class="vidgetaffirm">
                 <div class="rectangle">
                 </div>
@@ -76,26 +96,27 @@
         </div>
 
         <div class="columns">
-            <div class="smiles">
-                <div class="happy">
-                    <img src="img/emotions/happy.png" width="80 px">
-                    <p> СЧАСТЛИВЫЙ </p>
-                </div>
-                <div class="love">
-                    <img src="img/emotions/love.png" width="80px">
-                    <p> ВЛЮБЛЕННЫЙ </p>
-                </div>
-                <div class="sad">
-                    <img src="img/emotions/sad.png" width="80px">
-                    <p> ПЕЧАЛЬНЫЙ </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="columns">
             <button class="darkLight" onclick="darkLight()"></button>
             <div class="container">
-                <div id="dycalendar">
+                <div class="month">
+                    <i class="fas fa-angle-left prev"></i>
+                    <div class="date">
+                        <h1></h1>
+                        <!-- <p></p> -->
+                    </div>
+                    <i class="fas fa-angle-right next"></i>
+                </div>
+                <div class="calendar">
+                    <div class="weekdays">
+                        <div>ВС</div>
+                        <div>ПН</div>
+                        <div>ВТ</div>
+                        <div>СР</div>
+                        <div>ЧТ</div>
+                        <div>ПТ</div>
+                        <div>СБ</div>
+                    </div>
+                    <div class="daysCal"></div>
                 </div>
             </div>
         </div>
@@ -106,6 +127,25 @@
                 <img id="SiderCircle" src="img/zodiac_calendar/Сидерический круг.png" width="230px">
                 <img id="AstrolCircle" src="img/zodiac_calendar/Астрологический круг.png" width="310px">
                 <img id="Sun" src="img/zodiac_calendar/Солнце.png" width="60px" onclick="animation({}, this);">
+            </div>
+        </div>
+        <div class="columns">
+            <div class="container">
+                <div class="info">
+                    <p data-value="date"></p>
+                    <p data-value="time"></p>
+                </div>
+                <div class="search">
+
+                </div>
+                <div class="currency">
+                    <div class="favorites_currency">
+
+                    </div>
+                    <div class="main_currency" data-value="USD">
+
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -145,22 +185,15 @@
     <div class="cursor2"></div>
 
     <script src="mooncalc.js"></script>
+    <script src="money.js"></script>
     <script src="jsCircleCalendar.js"></script>
     <script src="mooncalc.js"></script>
     <script src="affirmacii.js"></script>
     <script src="dark-light.js"></script>
-    <script src="dycalendar.js"></script>
+    <script src="calendar.js"></script>
     <script src="zametki.js"></script>
     <script src="countdown.js"></script>
-    <script>
-        dycalendar.draw({
-            target: '#dycalendar',
-            type: 'month',
-            dayformat: 'full',
-            monthformat: 'full',
-            highlighttargetdate: true,
-            prevnextbutton: 'show'
-        })
+
     </script>
     <script>
         var cursor = document.querySelector(".cursor");
