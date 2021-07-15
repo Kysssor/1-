@@ -85,8 +85,7 @@ function animation(args, elem) { // некоторые аргументы опр
 
 		  elem.style.left =  1100 + radius * Math.sin(f) + 'px' ;//858 + $.radius * Math.sin(f)  + 'px'; // меняем координаты элемента, подобно тому как мы это делали в школе в декартовой системе координат. Правда, в данном случае используется полярная система координат, изменяя угол
 		  elem.style.top =   360 + radius * Math.cos(f) + 'px';//360 + $.radius * Math.cos(f) + 'px';
-      console.log(Math.sin(f));
-      console.log("f = "+f);
+      
 
       rotateSun -= 2; // rotate clockwise by 90 degrees
       document.querySelector("#Sun").style.transform = 'rotate(' + rotateSun + 'deg)';
