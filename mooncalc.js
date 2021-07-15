@@ -16,13 +16,16 @@ var dateX = new Date(2019, 11, 26, 7, 13, 12);
 var timeStart1 = dateX.getTime();
 
 //РАССЧЕТЫ
-function buttonclick(o) {
-
-    var b = D('input').value;
-    var pattern = /(\d{2})\.(\d{2})\.(\d{4})/;
-
+function buttonclick(now) {
     //выводим выбранную дату
-    var mh = new Date(b.replace(pattern, '$3-$2-$1'));
+	if (now)
+		var mh = now;
+	else
+	{
+		var b = D('input').value;
+		var pattern = /(\d{2})\.(\d{2})\.(\d{4})/;
+		var mh = new Date(b.replace(pattern, '$3-$2-$1'));
+	}
     var select = mh.toLocaleString("ru", options4);
     D('entereddate').innerHTML = "<p style=font-size:20px;>" + select + "</p>";
 
@@ -147,7 +150,12 @@ function buttonclick(o) {
 	if (currentDay > 28.054058714 && currentDay < 29.03841165133333333333) {
 		D('fases').innerHTML = "<img src = 'img/moon_info/30.png'/>";
     }
+	
+	
 }
+
+var now = new Date();
+window.onload = buttonclick(now);
 
 (function () { 'use strict';
 
