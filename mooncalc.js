@@ -1,4 +1,3 @@
-const $ = (s, o = document) => o.querySelector(s);
 const D = (s, o = document) => o.getElementById(s);
 
 var secMoonM = (29.53058812 * 86400 * 1000).toFixed(20);
