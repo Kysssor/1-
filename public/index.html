@@ -7,17 +7,17 @@
     <title>Widget page</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
-    <link rel="stylesheet" href="/assets/css/noteWidget.css">
-    <link rel="stylesheet" href="/assets/css/moonCalculatorWidget.css">
-    <link rel="stylesheet" href="/assets/css/moodWidget.css">
-    <link rel="stylesheet" href="/assets/css/affirmationWidget.css">
-    <link rel="stylesheet" href="/assets/css/calendarWidget.css">
-    <link rel="stylesheet" href="/assets/css/circularCalendarWidget.css">
-    <link rel="stylesheet" href="/assets/css/currencyWidget.css">
-    <link rel="stylesheet" href="/assets/css/countdownWidget.css">
-    <link rel="stylesheet" href="/assets/css/cursorWidget.css">
+    <link rel="stylesheet" href="../assets/css/noteWidget.css">
+    <link rel="stylesheet" href="../assets/css/moonCalculatorWidget.css">
+    <link rel="stylesheet" href="../assets/css/moodWidget.css">
+    <link rel="stylesheet" href="../assets/css/affirmationWidget.css">
+    <link rel="stylesheet" href="../assets/css/calendarWidget.css">
+    <link rel="stylesheet" href="../assets/css/circularCalendarWidget.css">
+    <link rel="stylesheet" href="../assets/css/currencyWidget.css">
+    <link rel="stylesheet" href="../assets/css/countdownWidget.css">
+    <link rel="stylesheet" href="../assets/css/cursorWidget.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -27,7 +27,7 @@
             <div id='stars'></div>
             <div id='stars2'></div>
             <div id='stars3'></div>
-            <img id="Moon_zametki" src="/assets/img/noteWidget/moon.png">
+            <img id="Moon_zametki" src="../assets/img/noteWidget/moon.png">
             <div class="zametki">
                 <div class="title_zametki">Интересные заметки о лунном дне</div>
                 <div class="text_zametki" id="text_zametki">Талисман cегодняшнего лунного дня - Золотой Лебедь.</div>
@@ -58,15 +58,15 @@
         <div class="columns">
             <div class="smiles">
                 <div class="happy">
-                    <img src="/assets/img/moodWidget/happy.png" width="80 px">
+                    <img src="../assets/img/moodWidget/happy.png" width="80 px">
                     <p> СЧАСТЛИВЫЙ </p>
                 </div>
                 <div class="love">
-                    <img src="/assets/img/moodWidget/love.png" width="80px">
+                    <img src="../assets/img/moodWidget/love.png" width="80px">
                     <p> ВЛЮБЛЕННЫЙ </p>
                 </div>
                 <div class="sad">
-                    <img src="/assets/img/moodWidget/sad.png" width="80px">
+                    <img src="../assets/img/moodWidget/sad.png" width="80px">
                     <p> ПЕЧАЛЬНЫЙ </p>
                 </div>
             </div>
@@ -76,7 +76,7 @@
             <div class="vidgetaffirm">
                 <div class="rectangle">
                 </div>
-                <img class="vselennaya" src="/assets/img/affirmationWidget/Vector.png">
+                <img class="vselennaya" src="../assets/img/affirmationWidget/Vector.png">
                 <h1 class="titlerec">Аффирмация на сегодня</h1>
                 <div class="line">
                 </div>
@@ -84,9 +84,9 @@
                     <p id="textaffirm">Спасибо миру за безграничные возможности, которые дарованы мне.
                 </div>
                 <input onclick="textaffirm.innerText = text.randElement()" class="button_left" type="image"
-                    src="/assets/img/affirmationWidget/button_left.png" alt="Стрелка влево «input»">
+                    src="../assets/img/affirmationWidget/button_left.png" alt="Стрелка влево «input»">
                 <input onclick="textaffirm.innerText = text.randElement()" class="button_right" type="image"
-                    src="/assets/img/affirmationWidget/button_right.png" alt="Стрелка вправо «input»">
+                    src="../assets/img/affirmationWidget/button_right.png" alt="Стрелка вправо «input»">
             </div>
         </div>
 
@@ -118,10 +118,10 @@
 
         <div class="columns">
             <div id="Circle">
-                <img id="TropicCircle" src="/assets/img/circularCalendarWidget/Тропичсекий круг.png" width="150px">
-                <img id="SiderCircle" src="/assets/img/circularCalendarWidget/Сидерический круг.png" width="230px">
-                <img id="AstrolCircle" src="/assets/img/circularCalendarWidget/Астрологический круг.png" width="310px">
-                <img id="Sun" src="/assets/img/circularCalendarWidget/Солнце.png" width="60px"
+                <img id="TropicCircle" src="../assets/img/circularCalendarWidget/Тропичсекий круг.png" width="150px">
+                <img id="SiderCircle" src="../assets/img/circularCalendarWidget/Сидерический круг.png" width="230px">
+                <img id="AstrolCircle" src="../assets/img/circularCalendarWidget/Астрологический круг.png" width="310px">
+                <img id="Sun" src="../assets/img/circularCalendarWidget/Солнце.png" width="60px"
                     onclick="animation({}, this);">
             </div>
         </div>
@@ -181,15 +181,15 @@
         </div>
     </div>
 
-    <script src="/modules/noteWidget.js"></script>
-    <script src="/modules/moonCalculatorWidget.js"></script>
-    <script src="/modules/affirmationWidget.js"></script>
-    <script src="/modules/darkLightMode.js"></script>
-    <script src="/modules/calendarWidget.js"></script>
-    <script src="/modules/circularCalendarWidget.js"></script>
-    <script src="/modules/currencyWidget.js"></script>
-    <script src="/modules/countdownWidget.js"></script>
-    <script src="/modules/cursorWidget.js"></script>
+    <script src="../modules/noteWidget.js"></script>
+    <script src="../modules/moonCalculatorWidget.js"></script>
+    <script src="../modules/affirmationWidget.js"></script>
+    <script src="../modules/darkLightMode.js"></script>
+    <script src="../modules/calendarWidget.js"></script>
+    <script src="../modules/circularCalendarWidget.js"></script>
+    <script src="../modules/currencyWidget.js"></script>
+    <script src="../modules/countdownWidget.js"></script>
+    <script src="../modules/cursorWidget.js"></script>
 
 </body>
 
