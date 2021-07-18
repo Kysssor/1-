@@ -1,7 +1,7 @@
 .countdown-title {
   color: rgb(228, 230, 229);
-  font-weight: 100;
-  font-size: 35px;
+  font-size: 26px;
+  text-transform: uppercase;
   margin: 10px 0px 20px;
 }
    
@@ -24,7 +24,7 @@
 }
    
 .countdown-time {
-  padding: 15px;
+  padding: 10px;
   border-radius: 3px;
   background: rgb(31, 25, 63);
   display: inline-block;
@@ -43,7 +43,7 @@
 .widget-countdown {
   border-radius: 10px;
   height: 140px;
-  width: 400px;
+  /* width: 380px; */
   margin-left: auto;
   margin-right: auto;
 }
