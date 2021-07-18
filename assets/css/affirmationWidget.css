@@ -43,3 +43,10 @@
     position: relative;
     border: 1px solid #fff;
 }
+/* @keyframes moving{
+    100% {transform: rotate(360deg);}
+}
+.vselennaya{
+    animation: moving 3s infinite linear;
+    transform-origin: center center;
+} */

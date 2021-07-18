@@ -108,10 +108,10 @@
   padding: 20px;
   margin-bottom: 10px;
   border-radius: 30px;
-  background-image: url('../assets/img/calendarWidget/light.png');
+  background-image: url('../img/calendarWidget/light.png');
   background-size: contain;
 }
 .dark-mode .darkLight{
-  background-image: url('../assets/img/calendarWidget/dark.png');
+  background-image: url('../img/calendarWidget/dark.png');
   background-size: contain;
 }
