@@ -1,0 +1,45 @@
+.vidgetaffirm{
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    min-height: 200px;
+    padding: 15px;
+    text-transform: uppercase;
+}
+
+.textaffirmacii{
+    height: 60px;
+    font-size: 14px;
+}
+
+.titlerec{
+    font-size: 26px;
+}
+
+.button_left{
+    /* display: flex; */
+    position: relative;
+    margin-right: 120px;
+}
+.button_left:hover{
+    transform: scale(1.4);
+}
+
+.button_right{
+    /* display: flex; */
+    position: relative;
+    margin-left: 120px;
+}
+.button_right:hover{
+    transform: scale(1.4);
+}
+.vselennaya {
+    position: absolute;
+    display: flex;
+    margin-left: -65px;
+    margin-top: -65px;
+}
+.line {
+    position: relative;
+    border: 1px solid #fff;
+}

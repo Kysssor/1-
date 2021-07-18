@@ -24,8 +24,8 @@
 }
 .birthday button{
 	opacity: 0.8;
-	border-radius: 20px;
-	background-image: url('img/moon_info/search.png');
+	/* border-radius: 20px; */
+	background-image: url('/assets/img/moonCalculatorWidget/search.png');
 	background-size: contain;
 	padding: 15px;
 	margin-left: 5px;
