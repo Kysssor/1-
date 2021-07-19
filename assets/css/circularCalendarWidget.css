@@ -18,6 +18,11 @@ img#Sun {
   margin-left: 5px;
   margin-top: -33px;
 }
+img#Moon {
+  position: absolute;
+  margin-left: -101px;
+  margin-top: -110px;
+  }
 div#Circle { 
   display: block;
   margin-top: 70px;
