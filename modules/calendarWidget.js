@@ -34,13 +34,6 @@ const renderCalendar = () => {
         "Декабрь",
     ];
 
-    // var ninp = document.getElementById('input').value;
-    // console.log(ninp);
-    // if (ninp.length === 0) {
-    //     document.querySelector('.date h1').innerHTML = months[dateCal.getMonth()] + " " + dateCal.getFullYear();
-    // } else {
-    //     document.querySelector('.date h1').innerHTML = ninp;
-    // }
     document.querySelector('.date h1').innerHTML = MONTHS[DATECAL.getMonth()] + " " + DATECAL.getFullYear();
     // document.querySelector('.date p').innerHTML = new Date().toDateString();
 
