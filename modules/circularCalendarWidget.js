@@ -33,8 +33,10 @@ let zodiacsDate = [
 
 var date = new Date();
 date = addZero(date.getMonth()+1) + "-" + addZero(date.getDate());
+var year;
+year = 2021;
 //date = "11-10";
-console.log(date);
+console.log(date + " "+year);
 
 function addZero(num) {
   if (num <= 9 ){
@@ -72,8 +74,18 @@ function moveAndRotateSun(index) {
 }
 
 function moveAndRotateMoon(longitudeSun) {
-
-  var numberMoon = 8; //Лунное число (меняется в зависимости от года)
+  var numberMoon; //Лунное число (меняется в зависимости от года)
+  if (year > 2013 ) {
+    if (19 >= (year - 2013)){
+    numberMoon = (year - 2013);
+    } else numberMoon = (year - 2013) % 19;
+  } else  {
+    if (19 >= (2013-year)) {
+      numberMoon = 19 - (2013-year);
+    } else numberMoon = 19 - (2013-year)%19;
+  }
+  console.log(numberMoon);
+  //Вычисляем возраст луны
   var ageOfMoon = (numberMoon*11 - 14) % 30 + Number(date[0]+date[1]) + Number(date[3] + date[4]);
   if (ageOfMoon>30) {
     ageOfMoon = ageOfMoon % 30;
@@ -92,11 +104,11 @@ function animation(args, elem) {
   var rotateMoon = gradusMoon;
 	var f = alf;
   var f2 = alfMoon;
-	var s = 2 * Math.PI / 180; //Вычислим угол
+	var s = 2 * Math.PI / 180; //Вычислим угол в радианах
 	setInterval(function() { // функция движения 
 		f += s; // приращение аргумента
-		  elem.style.marginLeft =  -104 + radius * Math.sin(f) + 'px' ;//858 + $.radius * Math.sin(f)  + 'px'; // меняем координаты элемента, подобно тому как мы это делали в школе в декартовой системе координат. Правда, в данном случае используется полярная система координат, изменяя угол
-		  elem.style.marginTop = -8 + radius * Math.cos(f) + 'px';//360 + $.radius * Math.cos(f) + 'px';
+		  elem.style.marginLeft =  -104 + radius * Math.sin(f) + 'px' ;// меняем координаты элемента, подобно тому как мы это делали в школе в декартовой системе координат
+		  elem.style.marginTop = -8 + radius * Math.cos(f) + 'px';
       rotateSun -= 2; // rotate clockwise by 90 degrees
       elem.style.transform = 'rotate(' + rotateSun + 'deg)';
 	}, speed)
