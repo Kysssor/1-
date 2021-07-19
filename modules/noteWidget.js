@@ -2,7 +2,7 @@
 //Постоянное вращение картинки луны с использованием таймера
 var angle = 0;
 setInterval(function () {
-    angle += 3;
+    angle += 1;
     jQuery("#Moon_zametki").rotate(angle);
 }, 50);
 
