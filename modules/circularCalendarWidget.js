@@ -99,6 +99,7 @@ function moveAndRotateMoon(longitudeSun) {
 }
 
 var flag = true;
+var idSetIntervalOfSun, idSetIntervalOfMoon;
 function animation(args, elem) { 
   if (flag){
   flag = false;
@@ -108,18 +109,30 @@ function animation(args, elem) {
 	var f = alf;
   var f2 = alfMoon;
 	var s = 2 * Math.PI / 180; //Вычислим угол в радианах
-	var idSetIntervalOfSun = setInterval(function() { // функция движения 
+	idSetIntervalOfSun = setInterval(function() { // функция движения 
 		f += s; // приращение аргумента
 		  elem.style.marginLeft =  -104 + radius * Math.sin(f) + 'px' ;// меняем координаты элемента, подобно тому как мы это делали в школе в декартовой системе координат
 		  elem.style.marginTop = -8 + radius * Math.cos(f) + 'px';
       rotateSun -= 2; // rotate clockwise by 90 degrees
       elem.style.transform = 'rotate(' + rotateSun + 'deg)';
 	}, speed)
-  setInterval(function() { // функция движения 
+  idSetIntervalOfMoon = setInterval(function() { // функция движения 
 		f2 += s; // приращение аргумента
     document.querySelector("#Moon").style.marginLeft =  -100 + radius * Math.sin(f2) + 'px' ;
     document.querySelector("#Moon").style.marginTop =   -3 + radius * Math.cos(f2) + 'px';
       rotateMoon -= 2;
       document.querySelector("#Moon").style.transform = 'rotate(' + rotateMoon + 'deg)';
 	}, speed/5)
-}}
+} else {
+  clearInterval(idSetIntervalOfMoon);
+  document.querySelector("#Moon").style.transform = 'rotate(' + gradusMoon +'deg)';
+  document.querySelector("#Moon").style.marginLeft = -100 + radius * Math.sin(alfMoon) + 'px';
+  document.querySelector("#Moon").style.marginTop = -3 + radius * Math.cos(alfMoon) + 'px';
+
+  clearInterval(idSetIntervalOfSun);
+  document.querySelector("#Sun").style.transform = 'rotate(' + gradus +'deg)';
+  document.querySelector("#Sun").style.marginLeft  = -104+ radius * Math.sin(alf) + 'px';
+  document.querySelector("#Sun").style.marginTop  = -8 + radius * Math.cos(alf) + 'px';
+  flag = true;
+}
+}
