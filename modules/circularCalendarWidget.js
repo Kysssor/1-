@@ -100,7 +100,7 @@ function moveAndRotateMoon(longitudeSun) {
 
 var flag = true;
 var idSetIntervalOfSun, idSetIntervalOfMoon;
-function animation(args, elem) { 
+function animation() { 
   if (flag){
   flag = false;
 	var speed= 50;
@@ -111,10 +111,10 @@ function animation(args, elem) {
 	var s = 2 * Math.PI / 180; //Вычислим угол в радианах
 	idSetIntervalOfSun = setInterval(function() { // функция движения 
 		f += s; // приращение аргумента
-		  elem.style.marginLeft =  -104 + radius * Math.sin(f) + 'px' ;// меняем координаты элемента, подобно тому как мы это делали в школе в декартовой системе координат
-		  elem.style.marginTop = -8 + radius * Math.cos(f) + 'px';
+      document.querySelector("#Sun").style.marginLeft =  -104 + radius * Math.sin(f) + 'px' ;// меняем координаты элемента, подобно тому как мы это делали в школе в декартовой системе координат
+      document.querySelector("#Sun").style.marginTop = -8 + radius * Math.cos(f) + 'px';
       rotateSun -= 2; // rotate clockwise by 90 degrees
-      elem.style.transform = 'rotate(' + rotateSun + 'deg)';
+      document.querySelector("#Sun").style.transform = 'rotate(' + rotateSun + 'deg)';
 	}, speed)
   idSetIntervalOfMoon = setInterval(function() { // функция движения 
 		f2 += s; // приращение аргумента
