@@ -98,14 +98,17 @@ function moveAndRotateMoon(longitudeSun) {
   document.querySelector("#Moon").style.marginTop = -3 + radius * Math.cos(alfMoon) + 'px';
 }
 
+var flag = true;
 function animation(args, elem) { 
+  if (flag){
+  flag = false;
 	var speed= 50;
   var rotateSun = gradus;
   var rotateMoon = gradusMoon;
 	var f = alf;
   var f2 = alfMoon;
 	var s = 2 * Math.PI / 180; //Вычислим угол в радианах
-	setInterval(function() { // функция движения 
+	var idSetIntervalOfSun = setInterval(function() { // функция движения 
 		f += s; // приращение аргумента
 		  elem.style.marginLeft =  -104 + radius * Math.sin(f) + 'px' ;// меняем координаты элемента, подобно тому как мы это делали в школе в декартовой системе координат
 		  elem.style.marginTop = -8 + radius * Math.cos(f) + 'px';
@@ -119,5 +122,4 @@ function animation(args, elem) {
       rotateMoon -= 2;
       document.querySelector("#Moon").style.transform = 'rotate(' + rotateMoon + 'deg)';
 	}, speed/5)
-}
-
+}}
