@@ -33,8 +33,9 @@ let zodiacsDate = [
 
 var date = new Date();
 date = addZero(date.getMonth()+1) + "-" + addZero(date.getDate());
-date = "11-10";
+//date = "11-10";
 console.log(date);
+
 function addZero(num) {
   if (num <= 9 ){
   num = '0'+num;
@@ -86,7 +87,7 @@ function moveAndRotateMoon(longitudeSun) {
 }
 
 function animation(args, elem) { // некоторые аргументы определим на будущее
-	var speed= 40;
+	var speed= 50;
   var rotateSun = gradus;
   var rotateMoon = gradusMoon;
 	var f = alf;
@@ -94,13 +95,10 @@ function animation(args, elem) { // некоторые аргументы опр
 	var s = 2 * Math.PI / 180; //Вычислим угол
 	setInterval(function() { // функция движения 
 		f += s; // приращение аргумента
-
 		  elem.style.marginLeft =  -104 + radius * Math.sin(f) + 'px' ;//858 + $.radius * Math.sin(f)  + 'px'; // меняем координаты элемента, подобно тому как мы это делали в школе в декартовой системе координат. Правда, в данном случае используется полярная система координат, изменяя угол
 		  elem.style.marginTop = -8 + radius * Math.cos(f) + 'px';//360 + $.radius * Math.cos(f) + 'px';
-      
-
       rotateSun -= 2; // rotate clockwise by 90 degrees
-      document.querySelector("#Sun").style.transform = 'rotate(' + rotateSun + 'deg)';
+      elem.style.transform = 'rotate(' + rotateSun + 'deg)';
 	}, speed)
   setInterval(function() { // функция движения 
 		f2 += s; // приращение аргумента
