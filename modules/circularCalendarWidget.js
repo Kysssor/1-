@@ -43,9 +43,8 @@ let zodiacsDate = [
 ["Рыбы", '02-20', '03-20']
 ];
 
-var zodiakNow;
+var zodiakNow, alf, gradus, alfMoon, gradusMoon;
 var current_rotation = 180;
-var alf, gradus;
 var radius  = 110; // радиус окружности 
 
 for (let i=0; i<12; i++){
@@ -67,21 +66,37 @@ function moveAndRotateSun(index) {
       var countDayInMonth= new Date(2021, zodiacsDate[index][1][0]+zodiacsDate[index][1][1], 0).getDate();
       dayInZodiak = Number(date[3]+date[4]) + (countDayInMonth-(zodiacsDate[index][1][3]+zodiacsDate[index][1][4]));
     }
-    gradus = current_rotation - (30*index+dayInZodiak);
+    gradus = 180 - (30*index+dayInZodiak);
     alf = ((30*index+dayInZodiak) * Math.PI)/180;
+    moveAndRotateMoon(30*index+dayInZodiak);
     document.querySelector("#Sun").style.transform = 'rotate(' + gradus +'deg)';
     document.querySelector("#Sun").style.marginLeft  = -104+ radius * Math.sin(alf) + 'px';
     document.querySelector("#Sun").style.marginTop  = -8 + radius * Math.cos(alf) + 'px';
     
 }
 
+function moveAndRotateMoon(longitudeSun) {
+
+  var ageOfMoon = (8*11 - 14) % 30 + Number(date[0]+date[1]) + Number(date[3] + date[4]);
+  if (ageOfMoon>30) {
+    ageOfMoon = ageOfMoon % 30;
+  }
+  var longitudeMoon = ageOfMoon * 12 + longitudeSun;
+  gradusMoon = 180 - longitudeMoon;
+  alfMoon = (longitudeMoon * Math.PI)/180;
+  document.querySelector("#Moon").style.transform = 'rotate(' + gradusMoon +'deg)';
+  document.querySelector("#Moon").style.marginLeft = -100 + radius * Math.sin(alfMoon) + 'px';
+  document.querySelector("#Moon").style.marginTop = -3 + radius * Math.cos(alfMoon) + 'px';
+}
 function animation(args, elem) { // некоторые аргументы определим на будущее
 	var $ = {
 		radius  :     220, // радиус окружности 
 		speed   :     40 // скорость/задержка ( в js это мс, например 10 мс = 100 кадров в секунду)
 	}
   var rotateSun = gradus;
+  var rotateMoon = gradusMoon;
 	var f = alf;
+  var f2 = alfMoon;
 	var s = 2 * Math.PI / 180; //Вычислим угол
 	setInterval(function() { // функция движения 
 		f += s; // приращение аргумента
@@ -93,5 +108,12 @@ function animation(args, elem) { // некоторые аргументы опр
       rotateSun -= 2; // rotate clockwise by 90 degrees
       document.querySelector("#Sun").style.transform = 'rotate(' + rotateSun + 'deg)';
 	}, $.speed)
+  setInterval(function() { // функция движения 
+		f2 += s; // приращение аргумента
+    document.querySelector("#Moon").style.marginLeft =  -100 + radius * Math.sin(f2) + 'px' ;
+    document.querySelector("#Moon").style.marginTop =   -3 + radius * Math.cos(f2) + 'px';
+      rotateMoon -= 2;
+      document.querySelector("#Moon").style.transform = 'rotate(' + rotateMoon + 'deg)';
+	}, 8)
 }
 
