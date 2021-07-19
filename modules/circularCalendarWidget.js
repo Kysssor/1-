@@ -13,20 +13,8 @@ Circle.onclick = function() {
     circleTrop.style.transition = "transform 1.5s";
     circleSider.style.transition = "transform 1.5s";
     circleAstr.style.transition = "transform 1.5s";
-    console.log("Work");
 };
 
-
-var date = new Date();
-date = addZero(date.getMonth()+1) + "-" + addZero(date.getDate());
-//date = "11-02";
-console.log(date);
-function addZero(num) {
-  if (num <= 9 ){
-  num = '0'+num;
-  }
-return num;
-}
 
 let zodiacsDate = [
 ["Овен", '03-21', '04-20'],
@@ -43,10 +31,19 @@ let zodiacsDate = [
 ["Рыбы", '02-20', '03-20']
 ];
 
-var zodiakNow, alf, gradus, alfMoon, gradusMoon;
-var current_rotation = 180;
-var radius  = 110; // радиус окружности 
+var date = new Date();
+date = addZero(date.getMonth()+1) + "-" + addZero(date.getDate());
+date = "11-10";
+console.log(date);
+function addZero(num) {
+  if (num <= 9 ){
+  num = '0'+num;
+  }
+return num;
+}
 
+var zodiakNow, alf, gradus, alfMoon, gradusMoon;
+var radius  = 110; // радиус окружности 
 for (let i=0; i<12; i++){
     if (date >= zodiacsDate[i][1] && date <= zodiacsDate[i][2] && i!=9) {
       moveAndRotateSun(i);
@@ -76,7 +73,6 @@ function moveAndRotateSun(index) {
 }
 
 function moveAndRotateMoon(longitudeSun) {
-
   var ageOfMoon = (8*11 - 14) % 30 + Number(date[0]+date[1]) + Number(date[3] + date[4]);
   if (ageOfMoon>30) {
     ageOfMoon = ageOfMoon % 30;
@@ -88,11 +84,9 @@ function moveAndRotateMoon(longitudeSun) {
   document.querySelector("#Moon").style.marginLeft = -100 + radius * Math.sin(alfMoon) + 'px';
   document.querySelector("#Moon").style.marginTop = -3 + radius * Math.cos(alfMoon) + 'px';
 }
+
 function animation(args, elem) { // некоторые аргументы определим на будущее
-	var $ = {
-		radius  :     220, // радиус окружности 
-		speed   :     40 // скорость/задержка ( в js это мс, например 10 мс = 100 кадров в секунду)
-	}
+	var speed= 40;
   var rotateSun = gradus;
   var rotateMoon = gradusMoon;
 	var f = alf;
@@ -107,13 +101,13 @@ function animation(args, elem) { // некоторые аргументы опр
 
       rotateSun -= 2; // rotate clockwise by 90 degrees
       document.querySelector("#Sun").style.transform = 'rotate(' + rotateSun + 'deg)';
-	}, $.speed)
+	}, speed)
   setInterval(function() { // функция движения 
 		f2 += s; // приращение аргумента
     document.querySelector("#Moon").style.marginLeft =  -100 + radius * Math.sin(f2) + 'px' ;
     document.querySelector("#Moon").style.marginTop =   -3 + radius * Math.cos(f2) + 'px';
       rotateMoon -= 2;
       document.querySelector("#Moon").style.transform = 'rotate(' + rotateMoon + 'deg)';
-	}, 8)
+	}, speed/5)
 }
 
