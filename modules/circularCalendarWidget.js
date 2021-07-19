@@ -53,10 +53,9 @@ for (let i=0; i<12; i++){
     }
 }
 
-
 function moveAndRotateSun(index) {
     zodiakNow = zodiacsDate[index][0];
-    var dayInZodiak;
+    var dayInZodiak;//количество дней, показывающее сколько уже дней этот зодиак вступил в силу
     //вычисление угла для поворота солнца
     if ((date[0]+date[1])==(zodiacsDate[index][1][0]+zodiacsDate[index][1][1])){
       dayInZodiak = (date[3]+date[4])-(zodiacsDate[index][1][3]+zodiacsDate[index][1][4]);
@@ -70,11 +69,12 @@ function moveAndRotateSun(index) {
     document.querySelector("#Sun").style.transform = 'rotate(' + gradus +'deg)';
     document.querySelector("#Sun").style.marginLeft  = -104+ radius * Math.sin(alf) + 'px';
     document.querySelector("#Sun").style.marginTop  = -8 + radius * Math.cos(alf) + 'px';
-    
 }
 
 function moveAndRotateMoon(longitudeSun) {
-  var ageOfMoon = (8*11 - 14) % 30 + Number(date[0]+date[1]) + Number(date[3] + date[4]);
+
+  var numberMoon = 8; //Лунное число (меняется в зависимости от года)
+  var ageOfMoon = (numberMoon*11 - 14) % 30 + Number(date[0]+date[1]) + Number(date[3] + date[4]);
   if (ageOfMoon>30) {
     ageOfMoon = ageOfMoon % 30;
   }
@@ -86,7 +86,7 @@ function moveAndRotateMoon(longitudeSun) {
   document.querySelector("#Moon").style.marginTop = -3 + radius * Math.cos(alfMoon) + 'px';
 }
 
-function animation(args, elem) { // некоторые аргументы определим на будущее
+function animation(args, elem) { 
 	var speed= 50;
   var rotateSun = gradus;
   var rotateMoon = gradusMoon;
