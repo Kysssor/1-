@@ -1,8 +1,27 @@
 const DATECAL = new Date();
 
-const renderCalendar = () => {
-    DATECAL.setDate(1);
+const inputValue = document.getElementById('input');
+inputValue.addEventListener('keypress', getMonthYear);
+function getMonthYear(evt) {
+    if (evt.keyCode == 13) {
+        let inputValue = document.getElementById('input').value;
+        if (inputValue.length == 10) {
+            var mySplits = inputValue.split(".");
+            // if (mySplits != "") {
+            //     console.log("Месяц: " + mySplits[1]);
+            //     console.log("Год: " + mySplits[2]);
+            // }
+        }
+    }
+    renderCalendar(mySplits)
+}
 
+function renderCalendar(mySplits) {
+    if (mySplits != null) {
+        DATECAL.setMonth(mySplits[1] - 1);
+        DATECAL.setFullYear(mySplits[2]);
+    }
+    DATECAL.setDate(1);
     const MONTHDAYS = document.querySelector(".daysCal");
 
     //последний день текущего месяца
@@ -45,7 +64,7 @@ const renderCalendar = () => {
     //числа текущего месяца
     for (let i = 1; i <= LASTDAY; i++) {
         //определение текущего дня
-        if (i === new Date().getDate() && DATECAL.getMonth() === new Date().getMonth()) {
+        if (i === new Date().getDate() && DATECAL.getMonth() === new Date().getMonth() && DATECAL.getFullYear() === new Date().getFullYear()) {
             days += `<div class="today">${i}</div>`;
         } else {
             days += `<div>${i}</div>`;
