@@ -1,28 +1,145 @@
 .container {
-    margin-top: 50px;
-    background-color: rgba(255, 255, 255, 0.2);
-    font-family: 'Montserrat';
-    max-width: 350px;
-    min-height: 80px;
-    /* max-height: 80px; */
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    width: 304px;
+    height: 412px;
+    border-radius: 8px;
     margin-left: auto;
     margin-right: auto;
-    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .info {
     margin-top: -1em;
-    font-weight: 600;
-    /* font-size: 20px; */
-    background: rgba(255, 255, 255, 0.3);
-    height: 30px;
-    line-height: 30px;
-    align-self:center;
-    border-radius: 10px 10px 0px 0px;
-    /* text-align: center; */
+    background: rgba(255, 255, 255, 0.2);
+    /* border: 1px solid rgba(255, 255, 255, 0.5); */
+    width: 304px;
+    height: 21px;
+    border-radius: 8px 8px 0px 0px;
 }
-.currency{
-    padding: 15px;
+
+.search {
+    width: 304px;
+    height: 35px;
+}
+
+.currency {
+    width: 304px;
+    height: 356px;
+    
+}
+
+.container #datee {
+    font-size: 15px;
+    float: left;
+    padding-top: 1.5px;
+    padding-left: 38.5%;
+}
+
+#timee {
+    font-size: 15px;
+    text-align: right;
+    float: right;
+    padding-top: 1.5px;
+    padding-right: 2%;
+}
+
+.header {
+    font-size: 20PX;
+    float: left;
+    padding-left: 36.5%;
+    padding-top: 1.5%;
+}
+
+table {
+    font-size: 18px;
+    margin-top: 5px;
+    width: 304px;
+}
+
+tr {
+    height: 47px;
+    width: 304px;
+    border-bottom: 1px solid;
+}
+
+.container img {
+    width: 30px;
+    margin-left: 22px; 
+    margin-top: 5px;
+}
+
+.name {
+    padding-left: 7px;
+}
+
+#variance.USD {
+    text-align: right;
+    font-size: 15px;
+    padding-right: 8px;
+    width: 40px;
+    color: red;
+}
+
+#variance.EUR {
+    text-align: right;
+    font-size: 15px;
+    padding-right: 8px;
+    width: 40px;
+    color: red;
+}
+
+#variance.GBP {
+    text-align: right;
+    font-size: 15px;
+    padding-right: 8px;
+    width: 40px;
+    color: red;
+}
+
+.v {
+    text-align: right;
+    font-size: 15px;
+    padding-right: 8px;
+    width: 40px;
+}
+
+#variance.BYN {
+    text-align: right;
+    font-size: 15px;
+    padding-right: 8px;
+    width: 40px;
+    color: red;
+}
+
+#variance.UAH {
+    text-align: right;
+    font-size: 15px;
+    padding-right: 8px;
+    width: 40px;
+    color: red;
+}
+
+#variance.CAD {
+    text-align: right;
+    font-size: 15px;
+    padding-right: 8px;
+    width: 40px;
+    color: red;
+}
+
+#variance.AZN {
+    text-align: right;
+    font-size: 15px;
+    padding-right: 8px;
+    width: 40px;
+    color: red;
+}
+
+.image {
+    width: 30px;
+}
+
+.valute {
+    width: 50px;
+    text-align: right;
 }

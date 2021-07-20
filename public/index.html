@@ -126,21 +126,63 @@
         <div class="columns">
             <div class="container">
                 <div class="info">
-                    <p data-value="date"></p>
-                    <p data-value="time"></p>
+                    <div id="datee"></div>
+                    <div id="timee"></div>
                 </div>
-                <div class="search">
-
-                </div>
+               <div class="search">
+                   <div class="header">Валюты</div>
+                   <!-- <div class="search"><img id="foto" src="search.ico"></div> -->
+               </div>
+               <hr style="size: 1px; margin:auto; border-top: 1px solid #024E68;">
                 <div class="currency">
-                    <div class="favorites_currency">
-
-                    </div>
-                    <div class="main_currency" data-value="USD">
-
-                    </div>
-                </div>
-            </div>
+                       <table id="mytable">
+                           <tbody>
+                           <tr>
+                               <td class="image"><img src="../assets/img/currencyWidget/USD.png"></td>
+                               <td class="name">USD</td>
+                               <td class="valute" data-value="USD"></td>
+                               <td class="v" id="variance.USD" data-value="USDp"></td>                    
+                           </tr>
+                           <tr>
+                               <td><img src="../assets/img/currencyWidget/EUR.png"></td>
+                               <td class="name">EUR</td>
+                               <td class="valute" data-value="EUR"></td>
+                               <td class="v" id="variance.EUR" data-value="EURp"></td>                          
+                           </tr>
+                           <tr>
+                               <td><img src="../assets/img/currencyWidget/GBP.png"></td>
+                               <td class="name">GBP</td>
+                               <td class="valute" data-value="GBP"></td>  
+                               <td class="v" id="variance.GBP" data-value="GBPp"></td>                          
+                           </tr>
+                           <tr>
+                               <td><img src="../assets/img/currencyWidget/BYN.png"></td>
+                               <td class="name">BYN</td>
+                               <td class="valute" data-value="BYN"></td> 
+                               <td class="v" id="variance.BYN" data-value="BYNp"></td>                           
+                           </tr>
+                           <tr>
+                               <td><img src="../assets/img/currencyWidget/UAH.png"></td>
+                               <td class="name">UAH</td>
+                               <td class="valute" data-value="UAH"></td> 
+                               <td class="v" id="variance.UAH" data-value="UAHp"></td>                           
+                           </tr>
+                           <tr>
+                               <td><img src="../assets/img/currencyWidget/CAD.png"></td>
+                               <td class="name">CAD</td>
+                               <td class="valute" data-value="CAD"></td> 
+                               <td class="v" id="variance.CAD" data-value="CADp"></td>                           
+                           </tr>
+                           <tr>
+                               <td><img src="../assets/img/currencyWidget/AZN.png"></td>
+                               <td class="name">AZN</td>
+                               <td class="valute" data-value="AZN"></td> 
+                               <td class="v" id="variance.AZN" data-value="AZNp"></td>                           
+                           </tr>
+                           </tbody>
+                       </table>
+                   </div>
+           </div>
         </div>
 
         <div class="columns">
