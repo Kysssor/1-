@@ -25,8 +25,8 @@
     <div id="grid">
         <div class="columns">
             <div class="starry-sky"></div>
-            <img id="Moon_zametki" src="../assets/img/noteWidget/moon.png">
             <div class="zametki">
+                <img id="Moon_zametki" src="../assets/img/noteWidget/moon1.png">
                 <div class="title_zametki">Интересные заметки о лунном дне</div>
                 <div class="text_zametki" id="text_zametki">Талисман cегодняшнего лунного дня - Золотой Лебедь.</div>
                 <button class="button_zametki" id="show_more"> Показать ещё</button>
@@ -72,8 +72,7 @@
 
         <div class="columns">
             <div class="vidgetaffirm">
-                <div class="rectangle">
-                </div>
+                <div class="rectangle"></div>
                 <img class="vselennaya" src="../assets/img/affirmationWidget/Vector.png">
                 <h1 class="titlerec">Аффирмация на сегодня</h1>
                 <div class="line">
@@ -118,7 +117,8 @@
             <div id="Circle" ondragstart="return false;" ondrop="return false;">
                 <img id="TropicCircle" src="../assets/img/circularCalendarWidget/Тропичсекий круг.png" width="150px">
                 <img id="SiderCircle" src="../assets/img/circularCalendarWidget/Сидерический круг.png" width="230px">
-                <img id="AstrolCircle" src="../assets/img/circularCalendarWidget/Астрологический круг.png" width="310px">
+                <img id="AstrolCircle" src="../assets/img/circularCalendarWidget/Астрологический круг.png"
+                    width="310px">
                 <img id="Sun" src="../assets/img/circularCalendarWidget/Солнце.png" width="60px" onclick="animation();">
                 <img id="Moon" src="../assets/img/circularCalendarWidget/Луна.png" width="55px" onclick="animation();">
             </div>
@@ -180,6 +180,7 @@
     </div>
 
     <script src="../modules/starrySky.js"></script>
+
     <script src="../modules/noteWidget.js"></script>
     <script src="../modules/moonCalculatorWidget.js"></script>
     <script src="../modules/affirmationWidget.js"></script>
@@ -190,6 +191,7 @@
     <script src="../modules/countdownWidget.js"></script>
     <script src="../modules/cursorWidget.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="module" src="index.js"></script>
     <script type="text/javascript" src="../lib/jquery.textillate.js"></script>
     <script type="text/javascript" src="../lib/jquery.lettering.js"></script>
     <script type="text/javascript" src="../lib/jqueryrotate.2.1.js"></script>

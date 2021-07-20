@@ -1,13 +1,43 @@
 .left{
-	padding-left: 15%;
+	/* padding-left: 15%;
+	text-align: left; */
+	padding: 10px;
+	width: 300px;
 	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 14px;
+	/* background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 10px;
+  	border: 1px solid rgba(255, 255, 255, 0.5); */
 }
-
+#location, #risesetmoon, #locationmoon, #statemoon{
+	/* border-bottom: 1px solid rgba(255, 255, 255, 0.5); */
+	/* padding: 5px; */
+	/* margin: 10px; */
+}
 #fases{
 	padding-top: 10px;
 }
+#fases img{
+	width: 100px;
+}
 .mooncalc-today{
+	padding-top: 0;
+	font-size: 26px;
+	margin-top: 0;
+	margin-bottom: 10px;
 	font-weight: 600;
+}
+#entereddate p{
+	margin-bottom: 0;
+	margin-top: 20px;
+}
+#time{
+	font-size: 24px;
+	/* font-weight: 600; */
+	margin-bottom: 20px;
+
 }
 .birthday input{
 	padding: 5px;

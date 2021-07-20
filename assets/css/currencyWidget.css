@@ -1,8 +1,10 @@
 .container {
+    margin-top: 50px;
     background-color: rgba(255, 255, 255, 0.2);
     font-family: 'Montserrat';
-    max-width: 320px;
+    max-width: 350px;
     min-height: 80px;
+    /* max-height: 80px; */
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     margin-left: auto;
@@ -13,17 +15,14 @@
 .info {
     margin-top: -1em;
     font-weight: 600;
+    /* font-size: 20px; */
     background: rgba(255, 255, 255, 0.3);
-    /* height: 30px; */
-    border-radius: 10px 10px 0px 0px;
-    text-align: center;
+    height: 30px;
     line-height: 30px;
+    align-self:center;
+    border-radius: 10px 10px 0px 0px;
+    /* text-align: center; */
 }
-
-/* .search {
-    height: 35px;
-} 
-
-.currency {
-    min-height: 50px;
-} */
+.currency{
+    padding: 15px;
+}

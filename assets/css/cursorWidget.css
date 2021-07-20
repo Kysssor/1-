@@ -1,19 +1,18 @@
-body{
+/* body{
   text-align: center;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-family: "Open Sans",sans-serif;
   color: #fff;
-  /* cursor: pointer; */
+} */
+.content h1{
+  font-size: 26px;
 }
-
 .content p{
-  /* width: 700px; */
   line-height: 26px;
   font-size: 18px;
   text-align: center;
-  /* position: relative; */
   left: 31%;
 }
 

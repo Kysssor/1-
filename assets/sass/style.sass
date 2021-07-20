@@ -2,9 +2,9 @@
 
 // n is number of stars required
 @function multiple-box-shadow ($n) 
-  $value: '#{random(3000)}px #{random(3000)}px #FFF'
+  $value: '#{random(10)}px #{random(10)}px #FFF'
   @for $i from 2 through $n
-    $value: '#{$value} , #{random(4000)}px #{random(3000)}px #FFF'
+    $value: '#{$value} , #{random(5070)}px #{random(3000)}px #FFF'
 
   @return unquote($value)
 
@@ -75,24 +75,24 @@ body
   background: rgb(31, 25, 63)
   transition: 0.7s
 
-// @media screen and (min-width: 1230px) 
-//   #grid 
-//     grid-template-columns: 1fr 1fr 1fr
+@media screen and (min-width: 1230px) 
+  #grid 
+    grid-template-columns: 1fr 1fr 1fr
   
 
-// @media screen and (min-width: 821px) and (max-width: 1229px) 
-//   #grid 
-//     grid-template-columns: 1fr 1fr
+@media screen and (min-width: 821px) and (max-width: 1229px) 
+  #grid 
+    grid-template-columns: 1fr 1fr
   
 
-// @media screen and (max-width: 820px) 
-//   #grid 
-//     grid-template-columns: 1fr
+@media screen and (max-width: 820px) 
+  #grid 
+    grid-template-columns: 1fr
   
 
 #grid 
   display: grid
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr))
+  // grid-template-columns: repeat(auto-fit, minmax(400px, 1fr))
   grid-gap: 5px
 
 #grid > div 
@@ -100,3 +100,6 @@ body
   background: rgba(255, 255, 255, 0.034)
   color: #fff
   text-align: center
+     
+::-webkit-scrollbar 
+  width: 0
