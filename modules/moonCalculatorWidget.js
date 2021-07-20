@@ -1,5 +1,3 @@
-const D = (s, o = document) => o.getElementById(s);
-
 var secMoonM = (29.53058812 * 86400 * 1000).toFixed(20);
 
 var options4 = {
@@ -24,12 +22,11 @@ function buttonclick(now) {
         if (now)
             var mh = now;
         else {
-            var b = D('input').value;
             var pattern = /(\d{2})\.(\d{2})\.(\d{4})/;
-            var mh = new Date(b.replace(pattern, '$3-$2-$1'));
+            var mh = new Date(document.getElementById('input').value.replace(pattern, '$3-$2-$1'));
         }
         var select = mh.toLocaleString("ru", options4);
-        D('entereddate').innerHTML = "<p style=font-size:20px;>" + select + "</p>";
+        document.getElementById('entereddate').innerHTML = "<p style=font-size:20px;>" + select + "</p>";
 
         //начало года по КИТАЮ
         var mhCH = new Date(mh.getFullYear(), 1);
@@ -46,111 +43,111 @@ function buttonclick(now) {
             currentDay = Math.abs((1 - (Math.abs(SelectMoonMonth1 - minData1))) * 29.53058812);
             //ПО РАЗНИЦЕ ОПРЕДЕЛЯЕМ УБЫВАНИЕ_РОСТ
             if ((Math.round(SelectMoonMonth1) - SelectMoonMonth1) > 0.01) {
-                D('cal8').innerHTML = "<p>Растущая</p>";
+                document.getElementById('cal8').innerHTML = "<p>Растущая</p>";
             } else {
-                D('cal8').innerHTML = "<p>Убывающая</p>";
+                document.getElementById('cal8').innerHTML = "<p>Убывающая</p>";
             }
         } else {
             //начало года по китаю > 2019
             currentDay = Math.abs((Math.abs(SelectMoonMonth1 - minData1)) * 29.53058812);
             if ((Math.round(SelectMoonMonth1) - SelectMoonMonth1) > 0.01) {
-                D('cal8').innerHTML = "<p>Убывающая</p>";
+                document.getElementById('cal8').innerHTML = "<p>Убывающая</p>";
             } else {
-                D('cal8').innerHTML = "<p>Растущая</p>";
+                document.getElementById('cal8').innerHTML = "<p>Растущая</p>";
             }
         }
         //сонодический месяц делем на количество картинок и делим на два чтоб высчитывать интервалы начиная с новолунии (29.53058812/30)/2
         if (currentDay >= 14.27311759133333333333 && currentDay <= 15.25747052866666666667) {
-            D('cal8').innerHTML = "<p>Полнолуние</p>";
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/16.png'/>";
+            document.getElementById('cal8').innerHTML = "<p>Полнолуние</p>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/16.png'/>";
         }
         if (currentDay >= 29.03841165133333333333 || currentDay <= 0.49217646866666666667) {
-            D('cal8').innerHTML = "<p>Новолуние</p>";
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/1.png'/>";
+            document.getElementById('cal8').innerHTML = "<p>Новолуние</p>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/1.png'/>";
         }
         if (currentDay > 0.49217646866666666667 && currentDay < 1.476529406) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/2.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/2.png'/>";
         }
         if (currentDay > 1.476529406 && currentDay < 2.46088234333333333333) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/3.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/3.png'/>";
         }
         if (currentDay > 2.46088234333333333333 && currentDay < 3.44523528066666666667) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/4.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/4.png'/>";
         }
         if (currentDay > 3.44523528066666666667 && currentDay < 4.429588218) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/5.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/5.png'/>";
         }
         if (currentDay > 4.429588218 && currentDay < 5.41394115533333333333) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/6.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/6.png'/>";
         }
         if (currentDay > 5.41394115533333333333 && currentDay < 6.39829409266666666667) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/7.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/7.png'/>";
         }
         if (currentDay > 6.39829409266666666667 && currentDay < 7.38264703) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/8.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/8.png'/>";
         }
         if (currentDay > 7.38264703 && currentDay < 8.36699996733333333333) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/9.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/9.png'/>";
         }
         if (currentDay > 8.36699996733333333333 && currentDay < 9.35135290466666666667) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/10.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/10.png'/>";
         }
         if (currentDay > 9.35135290466666666667 && currentDay < 10.335705842) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/11.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/11.png'/>";
         }
         if (currentDay > 10.335705842 && currentDay < 11.32005877933333333333) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/12.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/12.png'/>";
         }
         if (currentDay > 11.32005877933333333333 && currentDay < 12.30441171666666666667) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/13.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/13.png'/>";
         }
         if (currentDay > 12.30441171666666666667 && currentDay < 13.288764654) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/14.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/14.png'/>";
         }
         if (currentDay > 13.288764654 && currentDay < 14.27311759133333333333) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/15.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/15.png'/>";
         }
         if (currentDay > 15.25747052866666666667 && currentDay < 16.241823466) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/17.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/17.png'/>";
         }
         if (currentDay > 16.241823466 && currentDay < 17.22617640333333333333) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/18.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/18.png'/>";
         }
         if (currentDay > 17.22617640333333333333 && currentDay < 18.21052934066666666667) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/19.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/19.png'/>";
         }
         if (currentDay > 18.21052934066666666667 && currentDay < 19.194882278) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/20.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/20.png'/>";
         }
         if (currentDay > 19.194882278 && currentDay < 20.17923521533333333333) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/21.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/21.png'/>";
         }
         if (currentDay > 20.17923521533333333333 && currentDay < 21.16358815266666666667) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/22.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/22.png'/>";
         }
         if (currentDay > 21.16358815266666666667 && currentDay < 22.14794109) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/23.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/23.png'/>";
         }
         if (currentDay > 22.14794109 && currentDay < 23.13229402733333333333) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/24.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/24.png'/>";
         }
         if (currentDay > 23.13229402733333333333 && currentDay < 24.11664696466666666667) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/25.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/25.png'/>";
         }
         if (currentDay > 24.11664696466666666667 && currentDay < 25.100999902) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/26.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/26.png'/>";
         }
         if (currentDay > 25.100999902 && currentDay < 26.08535283933333333333) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/27.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/27.png'/>";
         }
         if (currentDay > 26.08535283933333333333 && currentDay < 27.06970577666666666667) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/28.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/28.png'/>";
         }
         if (currentDay > 27.06970577666666666667 && currentDay < 28.054058714) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/29.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/29.png'/>";
         }
         if (currentDay > 28.054058714 && currentDay < 29.03841165133333333333) {
-            D('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/30.png'/>";
+            document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/30.png'/>";
         }
     // }
 
