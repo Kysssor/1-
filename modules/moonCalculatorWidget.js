@@ -14,12 +14,8 @@ var options4 = {
 var dateX = new Date(2019, 11, 26, 7, 13, 12);
 var timeStart1 = dateX.getTime();
 
-// const inputValue = document.getElementById('input');
-// inputValue.addEventListener('keypress', buttonclick);
-
 //РАССЧЕТЫ
 function buttonclick(now) {
-    // if (evt.keyCode == 13) {
         //выводим выбранную дату
         if (now)
             var mh = now;
@@ -167,8 +163,6 @@ function buttonclick(now) {
 		var moonIllum = SunCalc.getMoonIllumination(mh);
 		document.getElementById("statemoon").innerHTML = "ДОЛЯ: " + moonIllum.fraction + "<br>ФАЗА: " + moonIllum.phase + "<br>УГОЛ: " + moonIllum.angle;
 	}
-    // }
-
 }
 
 var now = new Date();
@@ -431,4 +425,4 @@ function timeToString(datetime) {
 		latitude  = (position.coords.latitude).toFixed(3);
 		longitude = (position.coords.longitude).toFixed(3);
 		buttonclick(now);
-		}
+	}

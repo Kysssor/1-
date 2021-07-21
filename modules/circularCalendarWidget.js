@@ -142,4 +142,4 @@ function animation() {
   flag = true;
 }
 }
-window.onload = findOfZodiak();
+document.onload = findOfZodiak();
