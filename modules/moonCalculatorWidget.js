@@ -157,11 +157,11 @@ function buttonclick(now) {
 			
 		// МЕСТОПОЛОЖЕНИЕ ЛУНЫ
 		var moonPos = SunCalc.getMoonPosition(mh, latitude, longitude);
-		document.getElementById("locationmoon").innerHTML = "АЗИМУТ: " + moonPos.azimuth + "<br>ВЫСОТА: " + moonPos.altitude + "<br>РАССТОЯНИЕ: " + moonPos.distance;
+		document.getElementById("locationmoon").innerHTML = "АЗИМУТ: " + moonPos.azimuth + "<br>ВЫСОТА: " + moonPos.altitude + "<br>РАССТОЯНИЕ: " + moonPos.distance + " км";
 		
 		// СОСТОЯНИЕ ЛУНЫ
 		var moonIllum = SunCalc.getMoonIllumination(mh);
-		document.getElementById("statemoon").innerHTML = "ДОЛЯ: " + moonIllum.fraction + "<br>ФАЗА: " + moonIllum.phase + "<br>УГОЛ: " + moonIllum.angle;
+		document.getElementById("statemoon").innerHTML = "ДОЛЯ: " + moonIllum.fraction + " %<br>ФАЗА: " + moonIllum.phase + "<br>УГОЛ: " + moonIllum.angle;
 	}
 }
 
@@ -253,7 +253,7 @@ window.onload = buttonclick(now);
 
             l = L + rad * 6.289 * sin(M), // longitude
             b = rad * 5.128 * sin(F),     // latitude
-            dt = (385001 - 20905 * cos(M)).toFixed(3);  // distance to the moon in km
+            dt = Math.round(385001 - 20905 * cos(M));  // distance to the moon in km
 
         return {
             ra: rightAscension(l, b),
@@ -303,7 +303,7 @@ window.onload = buttonclick(now);
                 cos(s.dec) * sin(m.dec) * cos(s.ra - m.ra))).toFixed(3);
 
         return {
-            fraction: ((1 + cos(inc)) / 2).toFixed(3),
+            fraction: ((1 + cos(inc)) / 2 * 100).toFixed(1),
             phase: (0.5 + 0.5 * inc * (angle < 0 ? -1 : 1) / Math.PI).toFixed(3),
             angle: angle
         };
@@ -403,14 +403,12 @@ function time() {
     var datetime = new Date();
     var hours = zero(datetime.getHours());
     var minutes = zero(datetime.getMinutes());
-    var seconds = zero(datetime.getSeconds());
-    return hours + ":" + minutes + ":" + seconds;
+    return hours + ":" + minutes;
 }
 function timeToString(datetime) {
     var hours = zero(datetime.getHours());
     var minutes = zero(datetime.getMinutes());
-    var seconds = zero(datetime.getSeconds());
-    return hours + ":" + minutes + ":" + seconds;
+    return hours + ":" + minutes;
 } setInterval(function () {
     document.getElementById('time').innerHTML = time();
 }, 1);
