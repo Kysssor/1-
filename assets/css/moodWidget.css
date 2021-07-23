@@ -5,8 +5,7 @@
     min-height: 100px;
     /* max-height: 150px; */
     border: 1px solid rgba(255, 255, 255, 0.5);
-    font-size: 14px;
-    max-width: 400px;
+    max-width: 450px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -27,4 +26,40 @@
 
 .happy:hover, .love:hover, .sad:hover {
     opacity: 1;
+}
+.smiles button{
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+@keyframes fall {
+  from {
+    top: -10px;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+  to {
+    top: 110vh;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.confetti1, .confetti2, .confetti3 {
+  position: absolute;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+  pointer-events: none;
+  width: 10px;
+  height: 10px;
+  font-size: 30px;
+  animation: fall 2s cubic-bezier(0.05, 0.46, 1, 1);
 }

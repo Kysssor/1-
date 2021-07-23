@@ -1,11 +1,3 @@
-
-//Постоянное вращение картинки луны с использованием таймера
-var angle = 0;
-setInterval(function () {
-    angle += 1;
-    jQuery("#Moon_zametki").rotate(angle);
-}, 50);
-
 //для кнопки, чтобы при наведении курсора менялся цвет
 document.querySelector('.button_zametki').onmousemove = function (e) {
   var x = e.pageX - e.target.offsetLeft;

@@ -3,7 +3,7 @@ const DATECAL = new Date();
 const inputValue = document.getElementById('input');
 inputValue.addEventListener('keypress', getMonthYear);
 function getMonthYear(evt) {
-    if (evt.keyCode == 13) {
+    if (document.getElementById("entereddate").textContent != "Invalid Date" || evt.keyCode == 13) {
         let inputValue = document.getElementById('input').value;
         if (inputValue.length == 10) {
             var mySplits = inputValue.split(".");
