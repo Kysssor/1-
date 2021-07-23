@@ -153,7 +153,7 @@ function buttonclick(now) {
 
 		// ВОСХОД И ЗАКАТ ЛУНЫ		
 		var moonTimes = SunCalc.getMoonTimes(mh, latitude, longitude, true);
-		document.getElementById('risesetmoon').innerHTML = 'ВОСХОД ЛУНЫ: ' + timeToString(moonTimes.rise) + '<br>ЗАКАТ ЛУНЫ: ' + timeToString(moonTimes.set);
+		document.getElementById('risesetmoon').innerHTML = (moonTimes.rise ? 'ВОСХОД ЛУНЫ: ' + timeToString(moonTimes.rise) : '') + (moonTimes.set ? '<br>ЗАКАТ ЛУНЫ: ' + timeToString(moonTimes.set) : '');
 			
 		// МЕСТОПОЛОЖЕНИЕ ЛУНЫ
 		var moonPos = SunCalc.getMoonPosition(mh, latitude, longitude);
