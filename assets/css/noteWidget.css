@@ -87,13 +87,6 @@
     --size: 400px;
     }
 
-/*Луна*/     
-#Moon_zametki{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /*звездочки*/
 .stars .star1 {
     -webkit-animation: stars-pulse 2s ease-in-out infinite;
