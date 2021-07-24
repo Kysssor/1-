@@ -34,14 +34,9 @@
 }
 
 .month h1 {
-  /* letter-spacing: 0.2rem; */
   text-transform: uppercase;
   font-size: 24px;
 }
-/*
-.month p {
-  font-size: 1.6rem;
-} */
 
 .weekdays {
   font-size: 18px;
@@ -50,7 +45,6 @@
   background: rgba(255, 255, 255, 0.3);
   border-radius: 10px 10px 0 0;
   padding: 0 0.4rem;
-  /* display: flex; */
   display: grid;
   grid-template-columns: repeat(7,1fr);
   align-items: center;
@@ -58,14 +52,11 @@
 
 .weekdays div {
   letter-spacing: 0.1rem;
-  /* width: calc(44.2rem / 7);
-  display: flex; */
   justify-content: center;
   align-items: center;
 }
 
 .daysCal {
-  /* height: 160px; */
   justify-content: center;
   align-items: center;
   display: grid;
@@ -101,7 +92,7 @@
   transform: translateX(-10px)
 }
   
-  /* dark/light mode */
+/* dark/light mode */
 .dark-mode {
   background-color: black;
 }
@@ -117,6 +108,3 @@
   background-image: url('../img/calendarWidget/dark.png');
   background-size: contain;
 }
-/* .dark-mode #time{
-  color: #f5d993;
-} */

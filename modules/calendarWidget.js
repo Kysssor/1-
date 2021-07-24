@@ -7,10 +7,6 @@ function getMonthYear(evt) {
         let inputValue = document.getElementById('input').value;
         if (inputValue.length == 10) {
             var mySplits = inputValue.split(".");
-            // if (mySplits != "") {
-            //     console.log("Месяц: " + mySplits[1]);
-            //     console.log("Год: " + mySplits[2]);
-            // }
         }
     }
     renderCalendar(mySplits)
@@ -54,12 +50,11 @@ function renderCalendar(mySplits) {
     ];
 
     document.querySelector('.date h1').innerHTML = MONTHS[DATECAL.getMonth()] + " " + DATECAL.getFullYear();
-    // document.querySelector('.date p').innerHTML = new Date().toDateString();
 
     let days = "";
     //числа предыдущего месяца
     for (let x = FIRSTDAYINDEX; x > 0; x--) {
-        days += `<div class="prev-date">${PREVLASTDAY - x + 1}</div>`;
+        days += `<div class="prev-date">${PREVLASTDAY - x  +1}</div>`;
     }
     //числа текущего месяца
     for (let i = 1; i <= LASTDAY; i++) {
