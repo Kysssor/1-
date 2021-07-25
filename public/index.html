@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../assets/css/currencyWidget.css">
     <link rel="stylesheet" href="../assets/css/countdownWidget.css">
     <link rel="stylesheet" href="../assets/css/cursorWidget.css">
+    <link rel="stylesheet" href="../assets/css/goroWidget.css"/>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -80,6 +82,7 @@
                 <div class="textaffirmacii">
                     <p id="textaffirm">Спасибо миру за безграничные возможности, которые дарованы мне.
                 </div>
+
                 <input onclick="textaffirm.innerText = text.randElement()" class="button_left" type="image"
                     src="../assets/img/affirmationWidget/button_left.png" alt="Стрелка влево «input»">
                 <input onclick="textaffirm.innerText = text.randElement()" class="button_right" type="image"
@@ -219,7 +222,30 @@
             <div class="cursor"></div>
             <div class="cursor2"></div>
         </div>
+	 <div class="columns">
+            <div class="widgetGoro">
+                
+                <h1 class="title">Гороскоп на сегодня</h1>
+                <div class="line">
+                </div>
+
+		<p> Знак зодиака </p>
+		
+                <div class="textGoro">
+		<input class="output" id="output" value="Овен">
+		</div>
+		<div >
+		 <p> <input class="goro" id="goro" value="Не пытайтесь вернуть то, что сами отдали"> 
+		</div>
+
+		<input onclick="prev()" class="button_left" type="image" src="../assets/img/goroWidget/button_left.png" alt="Стрелка влево «input»">
+		<input onclick="next()" class="button_right" type="image" src="../assets/img/goroWidget/button_right.png" alt="Стрелка вправо «input»">
+                
+            </div>
+        </div>
+
     </div>
+
 
     <script src="../modules/starrySky.js"></script>
 
@@ -232,11 +258,14 @@
     <script src="../modules/currencyWidget.js"></script>
     <script src="../modules/countdownWidget.js"></script>
     <script src="../modules/cursorWidget.js"></script>
+    <script src="../modules/goroWidget.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script type="module" src="index.js"></script>
     <script type="text/javascript" src="../lib/jquery.textillate.js"></script>
     <script type="text/javascript" src="../lib/jquery.lettering.js"></script>
     <script type="text/javascript" src="../lib/jqueryrotate.2.1.js"></script>
+   
+    
 
     <script>
         $(function () {
