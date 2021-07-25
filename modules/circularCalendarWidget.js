@@ -19,7 +19,7 @@ Circle.onclick = function() {
 let zodiacsDate = [
 ["Овен", '03-21', '04-20'],
 ["Телец", '04-21', '05-21'],
-["Блинецы", '05-22', '06-21'],
+["Близнецы", '05-22', '06-21'],
 ["Рак", '06-22', '07-22'],
 ["Лев", '07-23', '08-23'],
 ["Дева", '08-24', '09-23'],
@@ -32,54 +32,56 @@ let zodiacsDate = [
 ];
 
 var date = new Date();
-var year = date.getFullYear();
-date = addZero(date.getMonth()+1) + "-" + addZero(date.getDate());
+var year = date.getFullYear();//получение текущего года
+date = addZero(date.getMonth()+1) + "-" + addZero(date.getDate());//ввод даты в виде "мм-дд". Важно, чтобы обязательно было два числа
 var zodiakNow, alf, gradus, alfMoon, gradusMoon;
 var radius  = 110; // радиус окружности 
 
+//функция добавления нуля перед числом. Применяется, если число записано как "2", чтобы стало "02"
 function addZero(num) {
   if (num <= 9 )  num = '0'+num;
   return num;
 }
-
+//функция получения даты из поля ввода при нажатии на кнопку
 function getDateForCalendar() {
-if (document.getElementById("entereddate").textContent != "Invalid Date"){
-var str = document.getElementById("input").value.split(".");
+if (document.getElementById("entereddate").textContent != "Invalid Date"){//если над поле не появилось надписи "Invalid Date"
+var str = document.getElementById("input").value.split(".");//получаем дату по отдельности как массив
  for (let i = 0 ; i!=str.length-1; i++){
   if (str[i].length == 1 )  str[i] = addZero(str[i]); 
 }
-date =  str[1] +"-"+str[0];
+date =  str[1] +"-"+str[0];//переводим в правильную форму
 year = str[2];
-findOfZodiak();
+findOfZodiak();//запускаем функцию получения знака зодиака
 }}
-
+//функция нахождения знака зодиака по дате
+//Просто проверяем текущую дату с датами из массива zodiacsDate
 function findOfZodiak() {
   for (let i=0; i<12; i++){
     if (date >= zodiacsDate[i][1] && date <= zodiacsDate[i][2] && i!=9) {
-      moveAndRotateSun(i);
+      moveAndRotateSun(i);//запуск функции вращения и поворота Солнца
     } else if ( (i == 9) && (date >='12-23' && date<='12-31') || (date>='01-01' && date<='01-20')) {
       moveAndRotateSun(i);
     }
 }}
-
+//функция поворота и вращения Солнца
 function moveAndRotateSun(index) {
     zodiakNow = zodiacsDate[index][0];
     var dayInZodiak;//количество дней, показывающее сколько уже дней этот зодиак вступил в силу
-    //вычисление угла для поворота солнца
+    //вычисление переменной dayInZodiak
     if ((date[0]+date[1])==(zodiacsDate[index][1][0]+zodiacsDate[index][1][1])){
       dayInZodiak = (date[3]+date[4])-(zodiacsDate[index][1][3]+zodiacsDate[index][1][4]);
     } else if ((date[0]+date[1])==(zodiacsDate[index][2][0]+zodiacsDate[index][2][1])){
       var countDayInMonth= new Date(2021, zodiacsDate[index][1][0]+zodiacsDate[index][1][1], 0).getDate();
       dayInZodiak = Number(date[3]+date[4]) + (countDayInMonth-(zodiacsDate[index][1][3]+zodiacsDate[index][1][4]));
     }
-    gradus = 180 - (30*index+dayInZodiak);
-    alf = ((30*index+dayInZodiak) * Math.PI)/180;
-    moveAndRotateMoon(30*index+dayInZodiak);
+    gradus = 180 - (30*index+dayInZodiak);//градус, на который нужно повернуть Солнце. Здесь вначале стоит 180, потому что на сайте изначально Солнце расположено на 90 градусах
+    alf = ((30*index+dayInZodiak) * Math.PI)/180;//перевод градусов в радианы
+    moveAndRotateMoon(30*index+dayInZodiak);//функция поворот и вращение Луны, которая получает долготу Солнца
     document.querySelector("#Sun").style.transform = 'rotate(' + gradus +'deg)';
     document.querySelector("#Sun").style.marginLeft  = -104+ radius * Math.sin(alf) + 'px';
     document.querySelector("#Sun").style.marginTop  = -8 + radius * Math.cos(alf) + 'px';
 }
-
+//функция поворота и вращения Солнца
 function moveAndRotateMoon(longitudeSun) {
   var numberMoon; //Лунное число (меняется в зависимости от года)
   if (year > 2013 ) {
@@ -96,6 +98,7 @@ function moveAndRotateMoon(longitudeSun) {
   if (ageOfMoon>30) {
     ageOfMoon = ageOfMoon % 30;
   }
+  //вычиление долготы Луны
   var longitudeMoon = ageOfMoon * 12 + longitudeSun;
   gradusMoon = 180 - longitudeMoon;
   alfMoon = (longitudeMoon * Math.PI)/180;
@@ -106,6 +109,7 @@ function moveAndRotateMoon(longitudeSun) {
 
 var flag = true;
 var idSetIntervalOfSun, idSetIntervalOfMoon;
+//функция анимации вращения Солнца и Луны по окружности
 function animation() { 
   if (flag){
   flag = false;
@@ -119,7 +123,7 @@ function animation() {
 		f += s; // приращение аргумента
       document.querySelector("#Sun").style.marginLeft =  -104 + radius * Math.sin(f) + 'px' ;// меняем координаты элемента, подобно тому как мы это делали в школе в декартовой системе координат
       document.querySelector("#Sun").style.marginTop = -8 + radius * Math.cos(f) + 'px';
-      rotateSun -= 2; // rotate clockwise by 90 degrees
+      rotateSun -= 2; // поворот
       document.querySelector("#Sun").style.transform = 'rotate(' + rotateSun + 'deg)';
 	}, speed)
   idSetIntervalOfMoon = setInterval(function() { // функция движения 
@@ -130,7 +134,8 @@ function animation() {
       document.querySelector("#Moon").style.transform = 'rotate(' + rotateMoon + 'deg)';
 	}, speed/5)
 } else {
-  clearInterval(idSetIntervalOfMoon);
+  clearInterval(idSetIntervalOfMoon);//остонавливаем анимацию вращения
+  //возвращаем в изначальное положение
   document.querySelector("#Moon").style.transform = 'rotate(' + gradusMoon +'deg)';
   document.querySelector("#Moon").style.marginLeft = -100 + radius * Math.sin(alfMoon) + 'px';
   document.querySelector("#Moon").style.marginTop = -3 + radius * Math.cos(alfMoon) + 'px';
@@ -142,4 +147,5 @@ function animation() {
   flag = true;
 }
 }
+//запускаем функцию для знака зодиака при загрузке документа
 document.onload = findOfZodiak();
