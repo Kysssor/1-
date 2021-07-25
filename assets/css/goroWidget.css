@@ -1,0 +1,76 @@
+.widgetGoro{
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    min-height: 300px;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    text-transform: uppercase;
+}
+.output{
+    /* width: 100%; */
+    height: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-spacing: initial;
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    /* text-shadow: -7px 4px 4px rgba(0, 0, 0, 0.5); */
+}
+
+#goro {
+    width: 100%; 
+    height: 100px;
+    padding: 0px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-spacing: initial;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    /* text-shadow: -7px 4px 4px rgba(0, 0, 0, 0.5); */
+}
+
+.textGoro{
+    background-color: tranparent;
+    height: 60px;
+    padding-bottom: 10px; 
+    font-size: 14px;
+}
+
+.title{
+    font-size: 26px;
+}
+
+.button_left{
+    /* display: flex; */
+    position: relative;
+    margin-right: 120px;
+}
+.button_left:hover{
+    transform: scale(2);
+}
+
+.button_right{
+    /* display: flex; */
+    position: relative;
+    margin-left: 120px;
+}
+.button_right:hover{
+    transform: scale(2);
+}
+
+.line {
+    position: relative;
+    border: 1px solid #fff;
+}
