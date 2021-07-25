@@ -1,4 +1,6 @@
 var secMoonM = (29.53058812 * 86400 * 1000).toFixed(20);
+var	latitude  = null; // ШИРОТА
+var	longitude = null; // ДОЛГОТА
 
 var options4 = {
     year: 'numeric',
@@ -12,12 +14,8 @@ var options4 = {
 var dateX = new Date(2019, 11, 26, 7, 13, 12);
 var timeStart1 = dateX.getTime();
 
-// const inputValue = document.getElementById('input');
-// inputValue.addEventListener('keypress', buttonclick);
-
 //РАССЧЕТЫ
 function buttonclick(now) {
-    // if (evt.keyCode == 13) {
         //выводим выбранную дату
         if (now)
             var mh = now;
@@ -149,15 +147,28 @@ function buttonclick(now) {
         if (currentDay > 28.054058714 && currentDay < 29.03841165133333333333) {
             document.getElementById('fases').innerHTML = "<img src = '../assets/img/moonCalculatorWidget/30.png'/>";
         }
-    // }
+			if (longitude !== null && latitude !== null)
+	{
+		document.getElementById("location").innerHTML = "ШИРОТА: " + latitude + "<br>ДОЛГОТА: " + longitude;
 
+		// ВОСХОД И ЗАКАТ ЛУНЫ		
+		var moonTimes = SunCalc.getMoonTimes(mh, latitude, longitude, true);
+		document.getElementById('risesetmoon').innerHTML = (moonTimes.rise ? 'ВОСХОД ЛУНЫ: ' + timeToString(moonTimes.rise) : '') + (moonTimes.set ? '<br>ЗАКАТ ЛУНЫ: ' + timeToString(moonTimes.set) : '');
+			
+		// МЕСТОПОЛОЖЕНИЕ ЛУНЫ
+		var moonPos = SunCalc.getMoonPosition(mh, latitude, longitude);
+		document.getElementById("locationmoon").innerHTML = "АЗИМУТ: " + moonPos.azimuth + "<br>ВЫСОТА: " + moonPos.altitude + "<br>РАССТОЯНИЕ: " + moonPos.distance + " км";
+		
+		// СОСТОЯНИЕ ЛУНЫ
+		var moonIllum = SunCalc.getMoonIllumination(mh);
+		document.getElementById("statemoon").innerHTML = "ДОЛЯ: " + moonIllum.fraction + " %<br>ФАЗА: " + moonIllum.phase + "<br>УГОЛ: " + moonIllum.angle;
+	}
 }
 
 var now = new Date();
 window.onload = buttonclick(now);
 
-(function () {
-    'use strict';
+(function () { 'use strict';
 
     // shortcuts for easier to read formulas
 
@@ -242,7 +253,7 @@ window.onload = buttonclick(now);
 
             l = L + rad * 6.289 * sin(M), // longitude
             b = rad * 5.128 * sin(F),     // latitude
-            dt = (385001 - 20905 * cos(M)).toFixed(3);  // distance to the moon in km
+            dt = Math.round(385001 - 20905 * cos(M));  // distance to the moon in km
 
         return {
             ra: rightAscension(l, b),
@@ -292,7 +303,7 @@ window.onload = buttonclick(now);
                 cos(s.dec) * sin(m.dec) * cos(s.ra - m.ra))).toFixed(3);
 
         return {
-            fraction: ((1 + cos(inc)) / 2).toFixed(3),
+            fraction: ((1 + cos(inc)) / 2 * 100).toFixed(1),
             phase: (0.5 + 0.5 * inc * (angle < 0 ? -1 : 1) / Math.PI).toFixed(3),
             angle: angle
         };
@@ -392,42 +403,24 @@ function time() {
     var datetime = new Date();
     var hours = zero(datetime.getHours());
     var minutes = zero(datetime.getMinutes());
-    var seconds = zero(datetime.getSeconds());
-    return hours + ":" + minutes + ":" + seconds;
+    return hours + ":" + minutes;
 }
 function timeToString(datetime) {
     var hours = zero(datetime.getHours());
     var minutes = zero(datetime.getMinutes());
-    var seconds = zero(datetime.getSeconds());
-    return hours + ":" + minutes + ":" + seconds;
+    return hours + ":" + minutes;
 } setInterval(function () {
     document.getElementById('time').innerHTML = time();
 }, 1);
 
 // МЕСТОПОЛОЖЕНИЕ, ПО КОТОРОМУ ТАКЖЕ ВЫВОДИТСЯ ВОСХОД/ЗАКАТ, МЕСТОПОЛОЖЕНИЕ, СОСТОЯНИЕ ЛУНЫ
-window.onload = Location;
-function Location() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position);
-    } else {
-        document.getElementById("location").innerHTML = "Геолокация не поддерживается";
-    }
-}
-function position(position) {
-    var date = new Date();
-    var lat = (position.coords.latitude).toFixed(3);
-    var lng = (position.coords.longitude).toFixed(3);
-    document.getElementById("location").innerHTML = "ШИРОТА: " + lat + "<br>ДОЛГОТА: " + lng;
-
-    // ВОСХОД И ЗАКАТ ЛУНЫ		
-    var moonTimes = SunCalc.getMoonTimes(date, lat, lng, true);
-    document.getElementById('risesetmoon').innerHTML = 'ВОСХОД ЛУНЫ: ' + timeToString(moonTimes.rise) + '<br>ЗАКАТ ЛУНЫ: ' + timeToString(moonTimes.set);
-
-    // МЕСТОПОЛОЖЕНИЕ ЛУНЫ
-    var moonPos = SunCalc.getMoonPosition(date, lat, lng);
-    document.getElementById("locationmoon").innerHTML = "АЗИМУТ: " + moonPos.azimuth + "<br>ВЫСОТА: " + moonPos.altitude + "<br>РАССТОЯНИЕ: " + moonPos.distance;
-
-    // СОСТОЯНИЕ ЛУНЫ
-    var moonIllum = SunCalc.getMoonIllumination(date);
-    document.getElementById("statemoon").innerHTML = "ДОЛЯ: " + moonIllum.fraction + "<br>ФАЗА: " + moonIllum.phase + "<br>УГОЛ: " + moonIllum.angle;
-}
+	window.onload = Location;
+	function Location () {
+		if (navigator.geolocation)
+			navigator.geolocation.getCurrentPosition(position);
+	}
+	function  position(position) {
+		latitude  = (position.coords.latitude).toFixed(3);
+		longitude = (position.coords.longitude).toFixed(3);
+		buttonclick(now);
+	}

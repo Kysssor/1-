@@ -27,8 +27,27 @@
     <div id="grid">
         <div class="columns">
             <div class="starry-sky"></div>
+            <div class="stars">
+                <svg class="stars star1" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23.172px" height="23.346px"
+                    viewBox="0 0 23.172 23.346" xml:space="preserve">
+                    <polygon fill="#ffffff"
+                        points="11.586,0 8.864,8.9 0,8.9 7.193,14.447 4.471,23.346 11.586,17.84 18.739,23.346 16.77,14.985 23.172,8.9 14.306,8.9" />
+                </svg>
+                <svg class="stars star2" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23.172px" height="23.346px"
+                    viewBox="0 0 23.172 23.346" xml:space="preserve">
+                    <polygon fill="#ffffff"
+                        points="11.586,0 8.864,8.9 0,8.9 7.193,14.447 4.471,23.346 11.586,17.84 18.739,23.346 16.77,14.985 23.172,8.9 14.306,8.9  " />
+                </svg>
+                <svg class="stars star3" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23.172px" height="23.346px"
+                    viewBox="0 0 23.172 23.346" xml:space="preserve">
+                    <polygon fill="#ffffff"
+                        points="11.586,0 8.864,8.9 0,8.9 7.193,14.447 4.471,23.346 11.586,17.84 18.739,23.346 16.77,14.985 23.172,8.9 14.306,8.9  " />
+                </svg>
+            </div>
             <div class="zametki">
-                <img id="Moon_zametki" src="../assets/img/noteWidget/moon1.png">
                 <div class="title_zametki">Интересные заметки о лунном дне</div>
                 <div class="text_zametki" id="text_zametki">Талисман cегодняшнего лунного дня - Золотой Лебедь.</div>
                 <button class="button_zametki" id="show_more"> Показать ещё</button>
@@ -41,7 +60,7 @@
             <div class="birthday">
                 <div id="entereddate"></div>
                 <input type="text" id="input" maxlength="10" placeholder="ДД.ММ.ГГГГ" />
-                <button onclick="buttonclick();"></button>
+                <button onclick="buttonclick(); getDateForCalendar(); getMonthYear();"></button>
                 <div id="fases"></div>
                 <div id="cal8"></div>
             </div>
@@ -55,21 +74,28 @@
             </div>
         </div>
 
-        <div class="columns">
+        <div class="columns" onselectstart="return false" onmousedown="return false">
             <div class="smiles">
                 <div class="happy">
-                    <img src="../assets/img/moodWidget/happy.png" width="80 px">
-                    <p> СЧАСТЛИВЫЙ </p>
+                    <button class="mui-button1">
+                        <img src="../assets/img/moodWidget/happy.png" width="80 px">
+                        <p> СЧАСТЛИВЫЙ </p>
+                    </button>
                 </div>
                 <div class="love">
-                    <img src="../assets/img/moodWidget/love.png" width="80px">
-                    <p> ВЛЮБЛЕННЫЙ </p>
+                    <button class="mui-button2">
+                        <img src="../assets/img/moodWidget/love.png" width="80px">
+                        <p> ВЛЮБЛЕННЫЙ </p>
+                    </button>
                 </div>
                 <div class="sad">
-                    <img src="../assets/img/moodWidget/sad.png" width="80px">
-                    <p> ПЕЧАЛЬНЫЙ </p>
+                    <button class="mui-button3">
+                        <img src="../assets/img/moodWidget/sad.png" width="80px">
+                        <p> ПЕЧАЛЬНЫЙ </p>
+                    </button>
                 </div>
             </div>
+
         </div>
 
         <div class="columns">
@@ -97,7 +123,6 @@
                     <i class="fas fa-angle-left prev"></i>
                     <div class="date">
                         <h1></h1>
-                        <!-- <p></p> -->
                     </div>
                     <i class="fas fa-angle-right next"></i>
                 </div>
@@ -132,84 +157,176 @@
                     <div id="datee"></div>
                     <div id="timee"></div>
                 </div>
-               <div class="search">
-                   <div class="header">Валюты</div>
-                   <!-- <div class="search"><img id="foto" src="search.ico"></div> -->
-               </div>
-               <hr style="size: 1px; margin:auto; border-top: 1px solid #024E68;">
+                <div class="search">
+                    <div class="header">Валюты</div>
+                    <!-- <div class="search"><img id="foto" src="search.ico"></div> -->
+                </div>
+                <hr style="size: 1px; margin:auto; border-top: 1px solid #024E68;">
                 <div class="currency">
-                       <table id="mytable">
-                           <tbody>
-                           <tr>
-                               <td class="image"><img src="../assets/img/currencyWidget/USD.png"></td>
-                               <td class="name">USD</td>
-                               <td class="valute" data-value="USD"></td>
-                               <td class="v" id="variance.USD" data-value="USDp"></td>                    
-                           </tr>
-                           <tr>
-                               <td><img src="../assets/img/currencyWidget/EUR.png"></td>
-                               <td class="name">EUR</td>
-                               <td class="valute" data-value="EUR"></td>
-                               <td class="v" id="variance.EUR" data-value="EURp"></td>                          
-                           </tr>
-                           <tr>
-                               <td><img src="../assets/img/currencyWidget/GBP.png"></td>
-                               <td class="name">GBP</td>
-                               <td class="valute" data-value="GBP"></td>  
-                               <td class="v" id="variance.GBP" data-value="GBPp"></td>                          
-                           </tr>
-                           <tr>
-                               <td><img src="../assets/img/currencyWidget/BYN.png"></td>
-                               <td class="name">BYN</td>
-                               <td class="valute" data-value="BYN"></td> 
-                               <td class="v" id="variance.BYN" data-value="BYNp"></td>                           
-                           </tr>
-                           <tr>
-                               <td><img src="../assets/img/currencyWidget/UAH.png"></td>
-                               <td class="name">UAH</td>
-                               <td class="valute" data-value="UAH"></td> 
-                               <td class="v" id="variance.UAH" data-value="UAHp"></td>                           
-                           </tr>
-                           <tr>
-                               <td><img src="../assets/img/currencyWidget/CAD.png"></td>
-                               <td class="name">CAD</td>
-                               <td class="valute" data-value="CAD"></td> 
-                               <td class="v" id="variance.CAD" data-value="CADp"></td>                           
-                           </tr>
-                           <tr>
-                               <td><img src="../assets/img/currencyWidget/AZN.png"></td>
-                               <td class="name">AZN</td>
-                               <td class="valute" data-value="AZN"></td> 
-                               <td class="v" id="variance.AZN" data-value="AZNp"></td>                           
-                           </tr>
-                           </tbody>
-                       </table>
-                   </div>
-           </div>
+                    <table id="mytable">
+                        <tbody>
+                            <tr>
+                                <td class="image"><img src="../assets/img/currencyWidget/USD.png"></td>
+                                <td class="name">USD</td>
+                                <td class="valute" data-value="USD"></td>
+                                <td class="v" id="variance.USD" data-value="USDp"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="../assets/img/currencyWidget/EUR.png"></td>
+                                <td class="name">EUR</td>
+                                <td class="valute" data-value="EUR"></td>
+                                <td class="v" id="variance.EUR" data-value="EURp"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="../assets/img/currencyWidget/GBP.png"></td>
+                                <td class="name">GBP</td>
+                                <td class="valute" data-value="GBP"></td>
+                                <td class="v" id="variance.GBP" data-value="GBPp"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="../assets/img/currencyWidget/BYN.png"></td>
+                                <td class="name">BYN</td>
+                                <td class="valute" data-value="BYN"></td>
+                                <td class="v" id="variance.BYN" data-value="BYNp"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="../assets/img/currencyWidget/UAH.png"></td>
+                                <td class="name">UAH</td>
+                                <td class="valute" data-value="UAH"></td>
+                                <td class="v" id="variance.UAH" data-value="UAHp"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="../assets/img/currencyWidget/CAD.png"></td>
+                                <td class="name">CAD</td>
+                                <td class="valute" data-value="CAD"></td>
+                                <td class="v" id="variance.CAD" data-value="CADp"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="../assets/img/currencyWidget/AZN.png"></td>
+                                <td class="name">AZN</td>
+                                <td class="valute" data-value="AZN"></td>
+                                <td class="v" id="variance.AZN" data-value="AZNp"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <div class="columns">
-            <h1 class="countdown-title">День рождения Алисы</h1>
-            <div class="widget-countdown">
-                <div id="countdown" class="countdown">
-                    <div class="countdown-number">
-                        <span class="days countdown-time"></span>
-                        <span class="countdown-text">Дней</span>
-                    </div>
-                    <div class="countdown-number">
-                        <span class="hours countdown-time"></span>
-                        <span class="countdown-text">Часов</span>
-                    </div>
-                    <div class="countdown-number">
-                        <span class="minutes countdown-time"></span>
-                        <span class="countdown-text">Минут</span>
-                    </div>
-                    <div class="countdown-number">
-                        <span class="seconds countdown-time"></span>
-                        <span class="countdown-text">Секунд</span>
+
+            <div class="wrap">
+                <h1>День рождения <strong>Алисы</strong></h1>
+                <div class="countdown-2">
+                    <div class="countdown">
+
+                        <div class="bloc-time days" data-init-value="15">
+                            <span class="count-title">Дней</span>
+
+                            <div class="figure days days-1">
+                                <span class="top">1</span>
+                                <span class="top-back">
+                                    <span>1</span>
+                                </span>
+                                <span class="bottom">1</span>
+                                <span class="bottom-back">
+                                    <span>1</span>
+                                </span>
+                            </div>
+
+                            <div class="figure days days-2">
+                                <span class="top">5</span>
+                                <span class="top-back">
+                                    <span>5</span>
+                                </span>
+                                <span class="bottom">5</span>
+                                <span class="bottom-back">
+                                    <span>5</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="bloc-time hours" data-init-value="24">
+                            <span class="count-title">Часов</span>
+
+                            <div class="figure hours hours-1">
+                                <span class="top">2</span>
+                                <span class="top-back">
+                                    <span>2</span>
+                                </span>
+                                <span class="bottom">2</span>
+                                <span class="bottom-back">
+                                    <span>2</span>
+                                </span>
+                            </div>
+
+                            <div class="figure hours hours-2">
+                                <span class="top">4</span>
+                                <span class="top-back">
+                                    <span>4</span>
+                                </span>
+                                <span class="bottom">4</span>
+                                <span class="bottom-back">
+                                    <span>4</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="bloc-time min" data-init-value="0">
+                            <span class="count-title">Минут</span>
+
+                            <div class="figure min min-1">
+                                <span class="top">0</span>
+                                <span class="top-back">
+                                    <span>0</span>
+                                </span>
+                                <span class="bottom">0</span>
+                                <span class="bottom-back">
+                                    <span>0</span>
+                                </span>
+                            </div>
+
+                            <div class="figure min min-2">
+                                <span class="top">0</span>
+                                <span class="top-back">
+                                    <span>0</span>
+                                </span>
+                                <span class="bottom">0</span>
+                                <span class="bottom-back">
+                                    <span>0</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="bloc-time sec" data-init-value="0">
+                            <span class="count-title">Секунд</span>
+
+                            <div class="figure sec sec-1">
+                                <span class="top">0</span>
+                                <span class="top-back">
+                                    <span>0</span>
+                                </span>
+                                <span class="bottom">0</span>
+                                <span class="bottom-back">
+                                    <span>0</span>
+                                </span>
+                            </div>
+
+                            <div class="figure sec sec-2">
+                                <span class="top">0</span>
+                                <span class="top-back">
+                                    <span>0</span>
+                                </span>
+                                <span class="bottom">0</span>
+                                <span class="bottom-back">
+                                    <span>0</span>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <div class="columns">
             <div class="content">
@@ -256,11 +373,16 @@
     <script src="../modules/calendarWidget.js"></script>
     <script src="../modules/circularCalendarWidget.js"></script>
     <script src="../modules/currencyWidget.js"></script>
+
+    <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+
     <script src="../modules/countdownWidget.js"></script>
     <script src="../modules/cursorWidget.js"></script>
     <script src="../modules/goroWidget.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script type="module" src="index.js"></script>
+    <script src="../modules/moodWidget.js"></script>
+    <!-- <script type="module" src="index.js"></script> -->
     <script type="text/javascript" src="../lib/jquery.textillate.js"></script>
     <script type="text/javascript" src="../lib/jquery.lettering.js"></script>
     <script type="text/javascript" src="../lib/jqueryrotate.2.1.js"></script>

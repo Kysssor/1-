@@ -32,28 +32,35 @@ let zodiacsDate = [
 ];
 
 var date = new Date();
+var year = date.getFullYear();
 date = addZero(date.getMonth()+1) + "-" + addZero(date.getDate());
-var year;
-year = 2021;
-//date = "11-10";
-console.log(date + " "+year);
-
-function addZero(num) {
-  if (num <= 9 ){
-  num = '0'+num;
-  }
-return num;
-}
-
 var zodiakNow, alf, gradus, alfMoon, gradusMoon;
 var radius  = 110; // радиус окружности 
-for (let i=0; i<12; i++){
+
+function addZero(num) {
+  if (num <= 9 )  num = '0'+num;
+  return num;
+}
+
+function getDateForCalendar() {
+if (document.getElementById("entereddate").textContent != "Invalid Date"){
+var str = document.getElementById("input").value.split(".");
+ for (let i = 0 ; i!=str.length-1; i++){
+  if (str[i].length == 1 )  str[i] = addZero(str[i]); 
+}
+date =  str[1] +"-"+str[0];
+year = str[2];
+findOfZodiak();
+}}
+
+function findOfZodiak() {
+  for (let i=0; i<12; i++){
     if (date >= zodiacsDate[i][1] && date <= zodiacsDate[i][2] && i!=9) {
       moveAndRotateSun(i);
     } else if ( (i == 9) && (date >='12-23' && date<='12-31') || (date>='01-01' && date<='01-20')) {
       moveAndRotateSun(i);
     }
-}
+}}
 
 function moveAndRotateSun(index) {
     zodiakNow = zodiacsDate[index][0];
@@ -84,7 +91,6 @@ function moveAndRotateMoon(longitudeSun) {
       numberMoon = 19 - (2013-year);
     } else numberMoon = 19 - (2013-year)%19;
   }
-  console.log(numberMoon);
   //Вычисляем возраст луны
   var ageOfMoon = (numberMoon*11 - 14) % 30 + Number(date[0]+date[1]) + Number(date[3] + date[4]);
   if (ageOfMoon>30) {
@@ -136,3 +142,4 @@ function animation() {
   flag = true;
 }
 }
+document.onload = findOfZodiak();

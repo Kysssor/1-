@@ -1,60 +1,60 @@
 @import compass
 
-// n is number of stars required
-@function multiple-box-shadow ($n) 
+// n - необходимое количество звезд
+@function multiple-box-shadow ($n)
   $value: '#{random(10)}px #{random(10)}px #FFF'
   @for $i from 2 through $n
     $value: '#{$value} , #{random(5070)}px #{random(3000)}px #FFF'
 
   @return unquote($value)
 
-$shadows-small:  multiple-box-shadow(800)
+$shadows-small: multiple-box-shadow(800)
 $shadows-medium: multiple-box-shadow(300)
-$shadows-big:    multiple-box-shadow(200)
+$shadows-big: multiple-box-shadow(200)
 
-    
 #stars
   width: 1px
   height: 1px
   background: transparent
   box-shadow: $shadows-small
-  animation			: animStar 50s linear infinite
-    
+  animation: animStar 50s linear infinite
+
   &:after
     content: " "
-    // position: absolute
     top: 100%
     width: 1px
     height: 1px
     background: transparent
     box-shadow: $shadows-small
-    
+
+body:active
+  #stars
+    animation: animStar 10s linear infinite
+
 #stars2
   width: 2px
   height: 2px
   background: transparent
   box-shadow: $shadows-medium
-  animation			: animStar 100s linear infinite
-    
+  animation: animStar 100s linear infinite
+
   &:after
     content: " "
-    // position: absolute
     top: 100%
     width: 2px
     height: 2px
     background: transparent
     box-shadow: $shadows-medium
-    
+
 #stars3
   width: 3px
   height: 3px
   background: transparent
   box-shadow: $shadows-big
-  animation			: animStar 150s linear infinite
-    
+  animation: animStar 150s linear infinite
+
   &:after
     content: " "
-    // position: absolute
     top: 100%
     width: 3px
     height: 3px
@@ -62,11 +62,11 @@ $shadows-big:    multiple-box-shadow(200)
     box-shadow: $shadows-big
 
 @keyframes animStar
-  from	
+  from
     transform: translateY(0px)
-  to		
+  to
     transform: translateY(-2000px)
-  
+
 *
   cursor: none
   font-family: 'Montserrat', sans-serif
@@ -75,31 +75,27 @@ body
   background: rgb(31, 25, 63)
   transition: 0.7s
 
-@media screen and (min-width: 1230px) 
-  #grid 
+@media screen and (min-width: 1230px)
+  #grid
     grid-template-columns: 1fr 1fr 1fr
-  
 
-@media screen and (min-width: 821px) and (max-width: 1229px) 
-  #grid 
+@media screen and (min-width: 821px) and (max-width: 1229px)
+  #grid
     grid-template-columns: 1fr 1fr
-  
 
-@media screen and (max-width: 820px) 
-  #grid 
+@media screen and (max-width: 820px)
+  #grid
     grid-template-columns: 1fr
-  
 
-#grid 
+#grid
   display: grid
-  // grid-template-columns: repeat(auto-fit, minmax(400px, 1fr))
   grid-gap: 5px
 
-#grid > div 
+#grid > div
   padding: 30px
   background: rgba(255, 255, 255, 0.034)
   color: #fff
   text-align: center
-     
-::-webkit-scrollbar 
+
+::-webkit-scrollbar
   width: 0
