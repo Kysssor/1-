@@ -30,6 +30,18 @@ let zodiacsDate = [
 ["Водолей", '01-21', '02-19'],
 ["Рыбы", '02-20', '03-20']
 ];
+let calendarForMoon = [
+  ["Овен", 0, 30],["Телец",31, 60],["Блинецы",61,90],
+  ["Рак",91,120],["Лев",121,150], ["Дева",151,180],
+  ["Весы",181,210],["Скорпион",211,240],["Стрелец",241, 270],
+  ["Козерог",271, 300],["Водолей",301,330],["Рыбы",331,360],
+
+  ["Водолей", 328, 351],["Рыбы",352, 360],["Рыбы",0, 28],
+  ["Овен",29, 53],["Телец",54, 90],["Близнецы", 91,118],
+  ["Рак",119,138],["Лев",139, 174],["Дева",175, 218],
+  ["Весы",219,241],["Скорпион", 242, 247],["Змееносец", 248, 266],
+  ["Стрелец",267, 299],["Козерог", 300,327]
+  ];
 
 var date = new Date();
 var year = date.getFullYear();//получение текущего года
@@ -76,6 +88,7 @@ function moveAndRotateSun(index) {
     }
     gradus = 180 - (30*index+dayInZodiak);//градус, на который нужно повернуть Солнце. Здесь вначале стоит 180, потому что на сайте изначально Солнце расположено на 90 градусах
     alf = ((30*index+dayInZodiak) * Math.PI)/180;//перевод градусов в радианы
+    document.getElementById("ZnakSun").innerHTML = "Знак зодиака: "+zodiakNow;//вывод на сайт информацию о знаке
     moveAndRotateMoon(30*index+dayInZodiak);//функция поворот и вращение Луны, которая получает долготу Солнца
     document.querySelector("#Sun").style.transform = 'rotate(' + gradus +'deg)';
     document.querySelector("#Sun").style.marginLeft  = -104+ radius * Math.sin(alf) + 'px';
@@ -100,6 +113,12 @@ function moveAndRotateMoon(longitudeSun) {
   }
   //вычиление долготы Луны
   var longitudeMoon = ageOfMoon * 12 + longitudeSun;
+  //опредеение к какому знаку и в каком созвездии находится Луна
+  for (var i = 0; i<26; i++){
+    if ((longitudeMoon >= calendarForMoon[i][1] && longitudeMoon<=calendarForMoon[i][2]) || ((longitudeMoon <= calendarForMoon[i][1] && longitudeMoon>=calendarForMoon[i][2]))){
+      if (i<12) document.getElementById("ZnakMoon").innerHTML = "Луна в знаке: " + calendarForMoon[i][0];
+      else      document.getElementById("constellationMoon").innerHTML ="Луна в создвездии: " + calendarForMoon[i][0];
+    }}
   gradusMoon = 180 - longitudeMoon;
   alfMoon = (longitudeMoon * Math.PI)/180;
   document.querySelector("#Moon").style.transform = 'rotate(' + gradusMoon +'deg)';
