@@ -88,7 +88,7 @@ function moveAndRotateSun(index) {
     }
     gradus = 180 - (30*index+dayInZodiak);//градус, на который нужно повернуть Солнце. Здесь вначале стоит 180, потому что на сайте изначально Солнце расположено на 90 градусах
     alf = ((30*index+dayInZodiak) * Math.PI)/180;//перевод градусов в радианы
-    document.getElementById("ZnakSun").innerHTML = "Знак зодиака: "+zodiakNow;//вывод на сайт информацию о знаке
+    document.getElementById("ZnakSun").innerHTML = "Знак зодиака: "+zodiakNow;//вывод на сайт информациb о знаке
     moveAndRotateMoon(30*index+dayInZodiak);//функция поворот и вращение Луны, которая получает долготу Солнца
     document.querySelector("#Sun").style.transform = 'rotate(' + gradus +'deg)';
     document.querySelector("#Sun").style.marginLeft  = -104+ radius * Math.sin(alf) + 'px';
@@ -113,7 +113,7 @@ function moveAndRotateMoon(longitudeSun) {
   }
   //вычиление долготы Луны
   var longitudeMoon = ageOfMoon * 12 + longitudeSun;
-  //опредеение к какому знаку и в каком созвездии находится Луна
+  //определение, к какому знаку и в каком созвездии находится Луна
   for (var i = 0; i<26; i++){
     if ((longitudeMoon >= calendarForMoon[i][1] && longitudeMoon<=calendarForMoon[i][2]) || ((longitudeMoon <= calendarForMoon[i][1] && longitudeMoon>=calendarForMoon[i][2]))){
       if (i<12) document.getElementById("ZnakMoon").innerHTML = "Луна в знаке: " + calendarForMoon[i][0];
