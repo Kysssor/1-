@@ -164,6 +164,12 @@ function buttonclick(datenow) {
 var datenow = new Date();
 window.onload = buttonclick(datenow);
 
+var inputEnter = document.getElementById('input');
+inputEnter.addEventListener('keypress', getEnterDate);
+function getEnterDate(evt) {
+    if (evt.keyCode == 13)
+        buttonclick();
+}
 
 (function () { 'use strict';
     // переменные для более удобного чтения формул
