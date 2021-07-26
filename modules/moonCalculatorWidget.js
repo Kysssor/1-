@@ -14,29 +14,25 @@ var options4 = {
 var dateX = new Date(2019, 11, 26, 7, 13, 12);
 var timeStart1 = dateX.getTime();
 
-//РАССЧЕТЫ
-function buttonclick(now) {
+//РАССЧЕТЫ ФАЗЫ ЛУНЫ В ВИДЕ ИЗОБРАЖЕНИЯ
+function buttonclick(datenow) {
         //выводим выбранную дату
-        if (now)
-            var mh = now;
+        if (datenow)
+            var date = datenow;
         else {
             var pattern = /(\d{2})\.(\d{2})\.(\d{4})/;
-            var mh = new Date(document.getElementById('input').value.replace(pattern, '$3-$2-$1'));
+            var date = new Date(document.getElementById('input').value.replace(pattern, '$3-$2-$1'));
         }
-        var select = mh.toLocaleString("ru", options4);
+        var select = date.toLocaleString("ru", options4);
         document.getElementById('entereddate').innerHTML = "<p style=font-size:20px;>" + select + "</p>";
 
-        //начало года по КИТАЮ
-        var mhCH = new Date(mh.getFullYear(), 1);
-        var SelectMoonMonthCH = Math.abs((timeStart1 - mhCH.getTime()) / secMoonM).toFixed(20);
-
         //считаем количество лунных месяцев между выбранной и нулевой датой
-        var SelectMoonMonth1 = Math.abs((timeStart1 - mh.getTime()) / secMoonM).toFixed(20);
+        var SelectMoonMonth1 = Math.abs((timeStart1 - date.getTime()) / secMoonM).toFixed(20);
         var minData1 = Math.floor(SelectMoonMonth1);
 
         //ВЫЧИСЛЯЕМ ЛУННЫЙ ДЕНЬ, УБЫЫВАНИЕ_РОСТ
-        //ЕСЛИ выбранная дата < 2020, то от нуля отнимаем, если больше - прибывляем
-        if (mh.getFullYear() < 2020) {
+        //если выбранная дата < 2020, то от нуля отнимаем, если больше - прибывляем
+        if (date.getFullYear() < 2020) {
             //начало года по китаю < 2020
             currentDay = Math.abs((1 - (Math.abs(SelectMoonMonth1 - minData1))) * 29.53058812);
             //ПО РАЗНИЦЕ ОПРЕДЕЛЯЕМ УБЫВАНИЕ_РОСТ
@@ -152,26 +148,25 @@ function buttonclick(now) {
 		document.getElementById("location").innerHTML = "ШИРОТА: " + latitude + "<br>ДОЛГОТА: " + longitude;
 
 		// ВОСХОД И ЗАКАТ ЛУНЫ		
-		var moonTimes = SunCalc.getMoonTimes(mh, latitude, longitude, true);
+		var moonTimes = SunCalc.getMoonTimes(date, latitude, longitude, true);
 		document.getElementById('risesetmoon').innerHTML = (moonTimes.rise ? 'ВОСХОД ЛУНЫ: ' + timeToString(moonTimes.rise) : '') + (moonTimes.set ? '<br>ЗАКАТ ЛУНЫ: ' + timeToString(moonTimes.set) : '');
 			
 		// МЕСТОПОЛОЖЕНИЕ ЛУНЫ
-		var moonPos = SunCalc.getMoonPosition(mh, latitude, longitude);
-		document.getElementById("locationmoon").innerHTML = "АЗИМУТ: " + moonPos.azimuth + "<br>ВЫСОТА: " + moonPos.altitude + "<br>РАССТОЯНИЕ: " + moonPos.distance + " км";
+		var moonPos = SunCalc.getMoonPosition(date, latitude, longitude);
+		document.getElementById("locationmoon").innerHTML = "АЗИМУТ: " + moonPos.azimuth + "°" + "<br>ВЫСОТА НАБЛЮДЕНИЯ: " + moonPos.altitude + " м" + "<br>РАССТОЯНИЕ: " + moonPos.distance + " км";
 		
 		// СОСТОЯНИЕ ЛУНЫ
-		var moonIllum = SunCalc.getMoonIllumination(mh);
-		document.getElementById("statemoon").innerHTML = "ДОЛЯ: " + moonIllum.fraction + " %<br>ФАЗА: " + moonIllum.phase + "<br>УГОЛ: " + moonIllum.angle;
+		var moonIllum = SunCalc.getMoonIllumination(date);
+		document.getElementById("statemoon").innerHTML = "ОСВЕЩЁННОСТЬ: " + moonIllum.fraction + " %<br>ФАЗА: " + moonIllum.phase + "<br>УГОЛ У ГОРИЗОНТА: " + moonIllum.angle + "°";
 	}
 }
 
-var now = new Date();
-window.onload = buttonclick(now);
+var datenow = new Date();
+window.onload = buttonclick(datenow);
+
 
 (function () { 'use strict';
-
-    // shortcuts for easier to read formulas
-
+    // переменные для более удобного чтения формул
     var PI = Math.PI,
         sin = Math.sin,
         cos = Math.cos,
@@ -180,11 +175,10 @@ window.onload = buttonclick(now);
         atan = Math.atan2,
         acos = Math.acos,
         rad = PI / 180;
-
-    // sun calculations are based on http://aa.quae.nl/en/reken/zonpositie.html formulas
-
-    // date/time constants and conversions
-
+		
+	// расчёты основаны на формулах с сайта http://aa.quae.nl/en/reken/zonpositie.html
+	
+    // константы даты и времени и их преобразования
     var dayMs = 1000 * 60 * 60 * 24,
         J1970 = 2440588,
         J2000 = 2451545;
@@ -194,29 +188,27 @@ window.onload = buttonclick(now);
     function toDays(date) { return toJulian(date) - J2000; }
 
 
-    // general calculations for position
-
-    var e = rad * 23.4397; // obliquity of the Earth
+    // общие расчёты для позиции
+    var e = rad * 23.4397; // наклон Земли
 
     function rightAscension(l, b) { return atan(sin(l) * cos(e) - tan(b) * sin(e), cos(l)); }
     function declination(l, b) { return asin(sin(b) * cos(e) + cos(b) * sin(e) * sin(l)); }
 
-    function azimuth(H, phi, dec) { return atan(sin(H), cos(H) * sin(phi) - tan(dec) * cos(phi)); }
+    function azimuth(H, phi, dec) { return atan(sin(H), cos(H) * sin(phi) - tan(dec) * cos(phi)) * (-10); }
     function altitude(H, phi, dec) { return asin(sin(phi) * sin(dec) + cos(phi) * cos(dec) * cos(H)); }
 
     function siderealTime(d, lw) { return rad * (280.16 + 360.9856235 * d) - lw; }
 
     function astroRefraction(h) {
-        if (h < 0) // the following formula works for positive altitudes only.
-            h = 0; // if h = -0.08901179 a div/0 would occur.
+        if (h < 0) // следующая формула работает только для положительных высот
+            h = 0; // если h = -0.08901179, произойдет div / 0.
 
-        // formula 16.4 of "Astronomical Algorithms" 2nd edition by Jean Meeus (Willmann-Bell, Richmond) 1998.
-        // 1.02 / tan(h + 10.26 / (h + 5.10)) h in degrees, result in arc minutes -> converted to rad:
+	// формула 16.4 2-го издания "Astronomical Algorithms" Жана Миуса (Willmann-Bell, Richmond) 1998 г.
+	// 1.02 / tan (h + 10.26 / (h + 5.10)) h в градусах, результат в угловых минутах -> преобразовано в рад:
         return 0.0002967 / Math.tan(h + 0.00312536 / (h + 0.08901179));
     }
 
-    // general sun calculations
-
+    // общие расчёты солнца, которые необходимы в дальнейшем для расчёта освещённости и фазы
     function solarMeanAnomaly(d) { return rad * (357.5291 + 0.98560028 * d); }
 
     function eclipticLongitude(M) {
@@ -237,23 +229,19 @@ window.onload = buttonclick(now);
             ra: rightAscension(L, 0)
         };
     }
-
-
+	
     var SunCalc = {};
 
+    // расчет луны на основе формул http://aa.quae.nl/en/reken/hemelpositie.html
+    function moonCoords(d) { // геоцентрические эклиптические координаты луны
 
+        var L = rad * (218.316 + 13.176396 * d), // эклиптическая долгота
+            M = rad * (134.963 + 13.064993 * d), // средняя аномалия
+            F = rad * (93.272 + 13.229350 * d),  // среднее расстояние
 
-    // moon calculations, based on http://aa.quae.nl/en/reken/hemelpositie.html formulas
-
-    function moonCoords(d) { // geocentric ecliptic coordinates of the moon
-
-        var L = rad * (218.316 + 13.176396 * d), // ecliptic longitude
-            M = rad * (134.963 + 13.064993 * d), // mean anomaly
-            F = rad * (93.272 + 13.229350 * d),  // mean distance
-
-            l = L + rad * 6.289 * sin(M), // longitude
-            b = rad * 5.128 * sin(F),     // latitude
-            dt = Math.round(385001 - 20905 * cos(M));  // distance to the moon in km
+            l = L + rad * 6.289 * sin(M), // долгота
+            b = rad * 5.128 * sin(F),     // широта
+            dt = Math.round(385001 - 20905 * cos(M));  // расстояние до Луны в км
 
         return {
             ra: rightAscension(l, b),
@@ -271,40 +259,38 @@ window.onload = buttonclick(now);
             c = moonCoords(d),
             H = siderealTime(d, lw) - c.ra,
             h = altitude(H, phi, c.dec),
-            // formula 14.1 of "Astronomical Algorithms" 2nd edition by Jean Meeus (Willmann-Bell, Richmond) 1998.
+            // формула 14.1 2-го издания "Astronomical Algorithms" Жана Миуса (Willmann-Bell, Richmond) 1998 г.
             pa = atan(sin(H), tan(phi) * cos(c.dec) - sin(c.dec) * cos(H));
 
         h = h + astroRefraction(h); // altitude correction for refraction
 
         return {
-            azimuth: (azimuth(H, phi, c.dec)).toFixed(3),
-            altitude: h.toFixed(3),
+            azimuth: (azimuth(H, phi, c.dec)).toFixed(2),
+            altitude: Math.round(h * (-100)),
             distance: c.dist,
             parallacticAngle: pa
         };
     };
 
-
-    // calculations for illumination parameters of the moon,
-    // based on http://idlastro.gsfc.nasa.gov/ftp/pro/astro/mphase.pro formulas and
-    // Chapter 48 of "Astronomical Algorithms" 2nd edition by Jean Meeus (Willmann-Bell, Richmond) 1998.
-
+	// расчет параметров освещенности Луны,
+	// на основе формул http://idlastro.gsfc.nasa.gov/ftp/pro/astro/mphase.pro и
+	// Глава 48 2-го издания "Astronomical Algorithms" Жана Миуса (Виллманн-Белл, Ричмонд) 1998.
     SunCalc.getMoonIllumination = function (date) {
 
         var d = toDays(date || new Date()),
             s = sunCoords(d),
             m = moonCoords(d),
 
-            sdist = 149598000, // distance from Earth to Sun in km
+            sdist = 149598000, // расстояние от Земли до Солнца в км
 
             phi = acos(sin(s.dec) * sin(m.dec) + cos(s.dec) * cos(m.dec) * cos(s.ra - m.ra)),
             inc = atan(sdist * sin(phi), m.dist - sdist * cos(phi)),
             angle = (atan(cos(s.dec) * sin(s.ra - m.ra), sin(s.dec) * cos(m.dec) -
-                cos(s.dec) * sin(m.dec) * cos(s.ra - m.ra))).toFixed(3);
+                cos(s.dec) * sin(m.dec) * cos(s.ra - m.ra)) * 10).toFixed(2);
 
         return {
             fraction: ((1 + cos(inc)) / 2 * 100).toFixed(1),
-            phase: (0.5 + 0.5 * inc * (angle < 0 ? -1 : 1) / Math.PI).toFixed(3),
+            phase: (0.5 + 0.5 * inc * (angle < 0 ? -1 : 1) / Math.PI).toFixed(2),
             angle: angle
         };
     };
@@ -314,8 +300,7 @@ window.onload = buttonclick(now);
         return new Date(date.valueOf() + h * dayMs / 24);
     }
 
-    // calculations for moon rise/set times are based on http://www.stargazing.net/kepler/moonrise.html article
-
+    // расчеты времени восхода / захода луны основаны на статье http://www.stargazing.net/kepler/moonrise.html
     SunCalc.getMoonTimes = function (date, lat, lng, inUTC) {
         var t = new Date(date);
         if (inUTC) t.setUTCHours(0, 0, 0, 0);
@@ -325,7 +310,7 @@ window.onload = buttonclick(now);
             h0 = SunCalc.getMoonPosition(t, lat, lng).altitude - hc,
             h1, h2, rise, set, a, b, xe, ye, d, roots, x1, x2, dx;
 
-        // go in 2-hour chunks, each time seeing if a 3-point quadratic curve crosses zero (which means rise or set)
+        // переходим к двухчасовым отрезкам, каждый раз наблюдая, пересекает ли трехточечная квадратичная кривая ноль (что означает подъем или установку)
         for (var i = 1; i <= 24; i += 2) {
             h1 = SunCalc.getMoonPosition(hoursLater(t, i), lat, lng).altitude - hc;
             h2 = SunCalc.getMoonPosition(hoursLater(t, i + 1), lat, lng).altitude - hc;
@@ -356,7 +341,6 @@ window.onload = buttonclick(now);
             }
 
             if (rise && set) break;
-
             h0 = h2;
         }
 
@@ -364,18 +348,11 @@ window.onload = buttonclick(now);
 
         if (rise) result.rise = hoursLater(t, rise);
         if (set) result.set = hoursLater(t, set);
-
         if (!rise && !set) result[ye > 0 ? 'alwaysUp' : 'alwaysDown'] = true;
 
         return result;
     };
-
-
-    // export as Node module / AMD module / browser variable
-    if (typeof exports === 'object' && typeof module !== 'undefined') module.exports = SunCalc;
-    else if (typeof define === 'function' && define.amd) define(SunCalc);
-    else window.SunCalc = SunCalc;
-
+	window.SunCalc = SunCalc;
 }());
 
 /* функция добавления ведущих нулей в дате и времени
@@ -422,5 +399,5 @@ function timeToString(datetime) {
 	function  position(position) {
 		latitude  = (position.coords.latitude).toFixed(3);
 		longitude = (position.coords.longitude).toFixed(3);
-		buttonclick(now);
+		buttonclick(datenow);
 	}
