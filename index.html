@@ -2,18 +2,19 @@
 <head>
 <title>Пример анимации вращения при наведении курсора</title>
 <link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 <meta charset="utf-8">
 </head>
 <body>
-      <div ><font  id="ZnakZodiak" size="18px" color="white">Знак зодиака</font></div>
-        <div id="Circle" >
+      <div><p  id="ZnakZodiak"  color="white">Знак зодиака</p>
+        <p  id="ZnakMoon" color="white">Знак зодиака</p></div>
+        <div id="Circle" ondragstart="return false;" ondrop="return false;">
         <img id="TropicCircle" src="Картинки/Календарь/Тропичсекий круг.png" width="300px" >
         <img id="SiderCircle" src="Картинки/Календарь/Сидерический круг.png" width="455px">
         <img id="AstrolCircle" src="Картинки/Календарь/Астрологический круг.png" width="620px">
-        <img id="Sun" src="Картинки/Календарь/Солнце.png" width="120px" onclick="animation({}, this);" >
-        <img id="Moon" src="Картинки/Календарь/Луна.png" width="110px">
-        </div>
-        
+       <img id="Sun" src="Картинки/Календарь/Солнце.png" width="120px" onclick="animation();" ondragstart="return false;" ondrop="return false;">
+        <img id="Moon" src="Картинки/Календарь/Луна.png" width="110px" onclick="animation();" ondragstart="return false;" ondrop="return false;">
+      </div>
  <script src="js.js"></script>
 </body>
 </html>
