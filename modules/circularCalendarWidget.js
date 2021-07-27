@@ -75,7 +75,7 @@ function findOfZodiak() {
       moveAndRotateSun(i);
     }
 }}
-//функция поворота и вращения Солнца
+//функция поворота и перемещение Солнца
 function moveAndRotateSun(index) {
     zodiakNow = zodiacsDate[index][0];
     var dayInZodiak;//количество дней, показывающее сколько уже дней этот зодиак вступил в силу
@@ -94,7 +94,7 @@ function moveAndRotateSun(index) {
     document.querySelector("#Sun").style.marginLeft  = -104+ radius * Math.sin(alf) + 'px';
     document.querySelector("#Sun").style.marginTop  = -8 + radius * Math.cos(alf) + 'px';
 }
-//функция поворота и вращения Солнца
+//функция поворота и перемещение Луны
 function moveAndRotateMoon(longitudeSun) {
   var numberMoon; //Лунное число (меняется в зависимости от года)
   if (year > 2013 ) {
